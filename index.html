@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+<title>Aayush Pundir — CA · AIR 44 · Strategy × Growth × AI</title>
+<meta name="description" content="Chartered Accountant (AIR 44). Strategy, Growth Capital & AI at OmniCard Founder's Office."/>
+<meta property="og:title" content="Aayush Pundir — CA · AIR 44"/>
+<meta property="og:description" content="Finance. Strategy. AI. Execution. One brain."/>
+<meta name="theme-color" content="#0B0806"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#E8B84B; --gold-b:#F8D87A; --gold-hot:#FFE9A8;
+  --gold-d:rgba(232,184,75,.32); --gold-3:rgba(232,184,75,.09);
+  --cream:#F5F1E8; --cream-2:rgba(245,241,232,.64); --cream-3:rgba(245,241,232,.34);
+  --ink:#0B0806; --ink-2:#141009;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;scroll-behavior:auto}
+body{background:var(--ink);color:var(--cream);font-family:Fraunces,Georgia,serif;overflow-x:hidden}
+::selection{background:var(--gold);color:var(--ink)}
+a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.mono{font-family:'Space Mono',monospace}
+
+/* ---------- custom cursor (fine pointers only) ---------- */
+@media (pointer:fine){
+  body.cursor-on, body.cursor-on a, body.cursor-on button{cursor:none}
+}
+#cur{position:fixed;width:7px;height:7px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:screen;display:none}
+#cur-ring{position:fixed;width:36px;height:36px;border:1px solid var(--gold-d);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s var(--ease-out),height .35s var(--ease-out),border-color .35s,background .35s,opacity .3s;display:none}
+#cur-ring.hover{width:64px;height:64px;border-color:var(--gold);background:rgba(232,184,75,.07)}
+#cur-ring.down{width:26px;height:26px}
+@media (pointer:fine){ body.cursor-on #cur, body.cursor-on #cur-ring{display:block} }
+
+/* ---------- preloader ---------- */
+#preloader{position:fixed;inset:0;z-index:10000;background:var(--ink);display:flex;align-items:center;justify-content:center;transition:opacity .9s var(--ease-out),visibility .9s}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.pre-inner{text-align:center;width:min(420px,84vw)}
+.pre-mono{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:1.4rem}
+.pre-name{font-size:clamp(1.6rem,4.5vw,2.4rem);font-weight:300;font-style:italic;color:var(--cream-2);margin-bottom:2rem;letter-spacing:.02em}
+.pre-count{font-family:'Space Mono',monospace;font-size:clamp(2.6rem,8vw,4.2rem);font-weight:700;color:var(--cream);line-height:1;margin-bottom:1.4rem;font-variant-numeric:tabular-nums}
+.pre-pct{font-size:.4em;color:var(--cream-3);margin-left:4px}
+.pre-bar{width:100%;height:1px;background:var(--gold-3);overflow:hidden;border-radius:1px}
+.pre-fill{width:0%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-b));box-shadow:0 0 12px var(--gold-d)}
+
+/* ---------- chrome ---------- */
+#prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-b));z-index:1000;box-shadow:0 0 14px rgba(232,184,75,.5)}
+#dots{position:fixed;right:max(1.6rem,env(safe-area-inset-right));top:50%;transform:translateY(-50%);z-index:500;display:flex;flex-direction:column;gap:14px}
+#dots button{position:relative;width:24px;height:24px;display:flex;align-items:center;justify-content:center;background:transparent;border:none;cursor:pointer;padding:0}
+#dots button::after{content:"";width:7px;height:7px;border-radius:50%;border:1px solid var(--gold-d);background:transparent;transition:background .3s,border-color .3s,transform .35s var(--ease-out),box-shadow .3s}
+#dots button.active::after{background:var(--gold);border-color:var(--gold);transform:scale(1.5);box-shadow:0 0 10px var(--gold-d)}
+#dots .dot-label{position:absolute;right:30px;top:50%;transform:translateY(-50%) translateX(6px);font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream-2);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease-out)}
+#dots button:hover .dot-label,#dots button:focus-visible .dot-label{opacity:1;transform:translateY(-50%) translateX(0)}
+#dots button:focus-visible::after{outline:2px solid var(--gold);outline-offset:3px}
+
+#snd{position:fixed;top:max(1.4rem,env(safe-area-inset-top));right:max(1.6rem,env(safe-area-inset-right));z-index:600;display:flex;align-items:center;gap:9px;background:rgba(11,8,6,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--gold-3);border-radius:999px;padding:.55rem .95rem;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);cursor:pointer;transition:border-color .3s,opacity .3s}
+#snd:hover{border-color:var(--gold-d)}
+.snd-bars{display:flex;align-items:flex-end;gap:2px;height:13px}
+.snd-bars i{width:2px;background:var(--gold);height:4px;border-radius:1px}
+#snd.playing .snd-bars i{animation:eq .9s ease-in-out infinite}
+#snd.playing .snd-bars i:nth-child(2){animation-delay:.15s}
+#snd.playing .snd-bars i:nth-child(3){animation-delay:.3s}
+#snd.playing .snd-bars i:nth-child(4){animation-delay:.45s}
+@keyframes eq{0%,100%{height:4px}50%{height:13px}}
+#snd.off{opacity:.55}
+
+/* chapter marquee (current chapter readout, bottom-left) */
+#chapname{position:fixed;left:max(1.6rem,env(safe-area-inset-left));bottom:max(1.4rem,env(safe-area-inset-bottom));z-index:500;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-3);display:flex;align-items:center;gap:.7rem;pointer-events:none}
+#chapname .cn-line{width:26px;height:1px;background:var(--gold-d)}
+#chapname .cn-txt{transition:opacity .4s}
+@media (max-width:600px){#chapname{display:none}}
+
+/* ---------- canvas + grain + vignette ---------- */
+#webgl{position:fixed;inset:0;z-index:0;pointer-events:none}
+#vignette{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse at center,transparent 42%,rgba(5,3,2,.55) 100%)}
+#grain{position:fixed;inset:-50%;z-index:2;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 7s steps(8) infinite}
+@keyframes grain{0%,100%{transform:translate(0,0)}25%{transform:translate(-4%,3%)}50%{transform:translate(3%,-4%)}75%{transform:translate(-2%,-2%)}}
+
+#scroll{position:relative;z-index:3}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;padding:2rem;padding-top:max(2rem,env(safe-area-inset-top))}
+.hero-in{display:flex;flex-direction:column;align-items:center}
+.hero-tag{font-family:'Space Mono',monospace;font-size:clamp(9px,1.4vw,11px);letter-spacing:.42em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.hero-name{font-weight:300;line-height:.88;letter-spacing:-.025em;font-size:clamp(4.2rem,15.5vw,13.5rem)}
+.hn-line{display:block;overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.hn-word{display:inline-block;transform:translateY(112%)}
+.hn-it{font-style:italic;background:linear-gradient(110deg,var(--gold) 20%,var(--gold-hot) 50%,var(--gold) 80%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 6s linear infinite}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.hero-role{font-size:clamp(1.15rem,3vw,2.1rem);font-weight:300;font-style:italic;color:var(--cream);margin-top:2rem;display:flex;flex-wrap:wrap;justify-content:center;gap:.4em 1em}
+.hero-role .dotsep{color:var(--gold);font-style:normal}
+.hero-skills{font-family:'Space Mono',monospace;font-size:clamp(8px,1.3vw,10px);letter-spacing:.08em;word-spacing:.22em;color:var(--cream-2);margin-top:1.8rem;max-width:680px;line-height:2.3;padding:0 .5rem}
+.hero-scroll{position:absolute;bottom:max(2.2rem,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.7rem}
+.hero-scroll span{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-3)}
+.hs-line{width:1px;height:52px;background:linear-gradient(to bottom,var(--gold),transparent);transform-origin:top;animation:hsPulse 2.4s ease-in-out infinite}
+@keyframes hsPulse{0%,100%{transform:scaleY(.4);opacity:.3}50%{transform:scaleY(1);opacity:1}}
+.reveal{opacity:0}
+
+/* ---------- chapters ---------- */
+.ch{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding:clamp(4.5rem,9vh,7rem) 8vw;position:relative}
+.ch:nth-child(odd) .card{margin-right:auto}
+.ch:nth-child(even) .card{margin-left:auto}
+.card{position:relative;z-index:3;max-width:480px;background:linear-gradient(160deg,rgba(20,16,9,.78),rgba(11,8,6,.62));backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:clamp(1.6rem,3vw,2.3rem);border-radius:14px;border:1px solid rgba(232,184,75,.12);box-shadow:0 24px 80px rgba(0,0,0,.5),inset 0 1px 0 rgba(245,241,232,.05);transform-style:preserve-3d;will-change:transform}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,rgba(232,184,75,.45),transparent 35%,transparent 65%,rgba(232,184,75,.2));-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;opacity:.6}
+.eyebrow{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.5rem;display:flex;align-items:center;gap:.8rem}
+.eb-num{display:inline-flex;align-items:center;justify-content:center;min-width:1.9em;border:1px solid var(--gold-d);border-radius:4px;padding:.18em .3em}
+.eb-yr{color:var(--cream-3);margin-left:auto}
+.ttl{font-size:clamp(2.3rem,5.4vw,4.6rem);font-weight:300;line-height:1.07;margin-bottom:1.3rem;color:var(--cream);letter-spacing:-.015em}
+.ttl em{font-style:italic;color:var(--gold);display:inline}
+.scr{display:inline}
+.org{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-2);margin-bottom:1.4rem}
+.bod{font-size:clamp(1rem,1.5vw,1.16rem);line-height:1.85;color:var(--cream-2);font-weight:300}
+.stats{margin-top:1.9rem;padding-top:1.7rem;border-top:1px solid var(--gold-3)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(128px,1fr));gap:1.4rem}
+.si{display:flex;flex-direction:column;gap:6px}
+.sn{font-family:'Space Mono',monospace;font-size:1.18rem;font-weight:700;color:var(--gold);font-variant-numeric:tabular-nums}
+.sl{font-size:.8rem;color:var(--cream-2);font-style:italic;line-height:1.45}
+.stats-list{display:flex;flex-direction:column;gap:.95rem}
+.li{font-size:clamp(.95rem,1.3vw,1.06rem);line-height:1.65;color:var(--cream-2);font-weight:300;padding-left:1.4rem;position:relative}
+.li::before{content:"→";position:absolute;left:0;top:0;color:var(--gold);font-size:.85em}
+.li b{color:var(--cream);font-weight:400}
+.fineprint{margin-top:1.5rem;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.04em;word-spacing:.18em;line-height:2.1;color:var(--cream-3)}
+
+/* ---------- finale ---------- */
+.finale{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem;padding-bottom:max(6rem,env(safe-area-inset-bottom));position:relative}
+.fin-in{max-width:920px;position:relative;z-index:3;background:radial-gradient(ellipse at center,rgba(11,8,6,.72) 0%,rgba(11,8,6,.55) 55%,transparent 100%);border-radius:24px;padding:2rem 1.5rem}
+.fin-tag{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.38em;text-transform:uppercase;color:var(--gold);margin-bottom:2.4rem}
+.fin-h{font-size:clamp(2.1rem,6.3vw,5.3rem);font-weight:300;line-height:1.12;color:var(--cream);margin-bottom:1.8rem;letter-spacing:-.015em}
+.fin-h em{font-style:italic;color:var(--gold)}
+.fin-sub{font-size:clamp(1.02rem,1.8vw,1.32rem);font-style:italic;color:var(--cream-2);line-height:1.75;margin-bottom:3.2rem}
+.fin-cta{display:flex;flex-direction:column;align-items:center;gap:1.7rem}
+.cta-btn{position:relative;z-index:5;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);background:linear-gradient(135deg,var(--gold),var(--gold-b));padding:1.25rem 3.2rem;text-decoration:none;border-radius:999px;display:inline-block;will-change:transform;transition:box-shadow .35s,filter .35s;box-shadow:0 8px 32px rgba(232,184,75,.25)}
+.cta-btn:hover,.cta-btn:focus-visible{box-shadow:0 12px 52px rgba(232,184,75,.5);filter:brightness(1.06)}
+.cta-btn:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
+.cta-meta{display:flex;align-items:center;gap:1.2rem;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--cream-2);flex-wrap:wrap;justify-content:center}
+.cta-meta a{position:relative;z-index:5;color:var(--cream-2);text-decoration:none;transition:color .3s;padding:.4rem 0}
+.cta-meta a:hover,.cta-meta a:focus-visible{color:var(--gold)}
+.fin-foot{margin-top:4rem;font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-3)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1024px){
+  .ch{padding:4.5rem 6vw}
+  .card{max-width:520px}
+}
+@media (max-width:860px){
+  .ch{padding:4rem 5vw}
+  .ch:nth-child(odd) .card,.ch:nth-child(even) .card{margin:0 auto}
+  .card{max-width:100%}
+  #dots{right:max(.7rem,env(safe-area-inset-right));gap:11px}
+  #dots .dot-label{display:none}
+  #dots button{width:20px;height:20px}
+  .hero-skills{max-width:94%}
+}
+@media (max-width:480px){
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:1.1rem}
+  .cta-btn{width:100%;text-align:center;padding:1.2rem 1rem}
+  #snd .snd-txt{display:none}
+  #snd{padding:.55rem .7rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .hs-line,.snd-bars i,#grain,.hn-it{animation:none!important}
+  .hn-word{transform:none}
+  .reveal{opacity:1}
+  html{scroll-behavior:auto}
+}
+noscript .hn-word{transform:none}
+body.no-fx .reveal{opacity:1}
+body.no-fx .hn-word{transform:none}
+body.no-fx #preloader{display:none}
+body.no-fx .card *{opacity:1!important;transform:none!important}
+/* ---------- floating finance words ---------- */
+#fwords{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.fw{position:absolute;font-family:'Space Mono',monospace;font-size:clamp(8px,1.1vw,11px);
+  letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:0;
+  white-space:nowrap;will-change:transform,opacity;
+  animation:fwFloat linear infinite}
+@keyframes fwFloat{
+  0%  {opacity:0; transform:translateY(0)   translateX(0)}
+  8%  {opacity:0}
+  15% {opacity:.18}
+  85% {opacity:.14}
+  95% {opacity:0}
+  100%{opacity:0; transform:translateY(-110vh) translateX(var(--fw-dx))}
+}
+@media (prefers-reduced-motion:reduce){.fw{animation:none;opacity:0}}
+
+</style>
+</head>
+<body>
+
+<div id="preloader" aria-hidden="true">
+  <div class="pre-inner">
+    <div class="pre-mono">Chartered Accountant · AIR 44</div>
+    <div class="pre-name">Aayush Pundir</div>
+    <div class="pre-count"><span id="pre-num">0</span><span class="pre-pct">%</span></div>
+    <div class="pre-bar"><div class="pre-fill" id="pre-fill"></div></div>
+  </div>
+</div>
+
+<div id="cur" aria-hidden="true"></div>
+<div id="cur-ring" aria-hidden="true"></div>
+<div id="prog" aria-hidden="true"></div>
+<nav id="dots" aria-label="Chapters"></nav>
+
+<button id="snd" class="off" aria-label="Toggle ambient sound" aria-pressed="false">
+  <span class="snd-bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+  <span class="snd-txt">Sound</span>
+</button>
+
+<div id="chapname" aria-hidden="true"><span class="cn-line"></span><span class="cn-txt">Intro</span></div>
+
+<canvas id="webgl" aria-hidden="true"></canvas>
+<div id="vignette" aria-hidden="true"></div>
+<div id="grain" aria-hidden="true"></div>
+<div id="fwords" aria-hidden="true"></div>
+
+<main id="scroll">
+
+  <section class="hero" data-dot="Intro" data-piece="seed">
+    <div class="hero-in">
+      <p class="hero-tag reveal">CA · AIR 44 · FinTech</p>
+      <h1 class="hero-name">
+        <span class="hn-line"><span class="hn-word">Aayush</span></span>
+        <span class="hn-line"><span class="hn-word hn-it">Pundir</span></span>
+      </h1>
+      <p class="hero-role reveal"><span>Strategy</span><span class="dotsep">·</span><span>Growth</span><span class="dotsep">·</span><span>Capital</span><span class="dotsep">·</span><span>AI</span></p>
+      <p class="hero-skills reveal">Founder's Office · GTM · Scaling · Fundraise · Controllership · Financial Reporting · FP&amp;A · Business Finance</p>
+    </div>
+    <div class="hero-scroll reveal">
+      <span>Scroll to begin</span>
+      <div class="hs-line"></div>
+    </div>
+  </section>
+
+  <section class="ch" data-i="0" data-dot="Root" data-piece="seedling">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">01</span> Root <span class="eb-yr">2019</span></div>
+      <h2 class="ttl"><span class="scr" data-text="It started">It started</span><br><span class="scr" data-text="with ">with </span> <em class="scr" data-text="numbers">numbers</em></h2>
+      <p class="bod">Senior secondary completed. Numbers always made sense to me — not just what they said, but what they meant. The decision to become a Chartered Accountant was deliberate from day one.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-i="1" data-dot="Foundation" data-piece="column">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">02</span> Foundation <span class="eb-yr">2020</span></div>
+      <h2 class="ttl"><span class="scr" data-text="The first">The first</span><br><em class="scr" data-text="filter">filter</em></h2>
+      <p class="bod">CA Foundation cleared in 2020 — the entry gate to the profession. The base was set early, and set with intent. Every step after this was built on it.</p>
+    </div>
+  </section>
+
+  <section class="ch" data-i="2" data-dot="Intermediate" data-piece="helix">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">03</span> Intermediate <span class="eb-yr">2021</span></div>
+      <h2 class="ttl"><span class="scr" data-text="Two tracks,">Two tracks,</span><br><span class="scr" data-text="one ">one </span> <em class="scr" data-text="focus">focus</em></h2>
+      <p class="bod">CA Intermediate cleared in 2021. Simultaneously pursuing BCom at Delhi University (2019–2022). Learning to carry more than one demanding thing at once — a habit that would define everything ahead.</p>
+      <div class="stats"><div class="stats-grid">
+        <div class="si"><span class="sn">BCom</span><span class="sl">Delhi University · 2019–2022</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="ch" data-i="3" data-dot="The Craft" data-piece="torus">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">04</span> The Craft <span class="eb-yr">2021–24</span></div>
+      <h2 class="ttl"><span class="scr" data-text="Audit taught me to">Audit taught me to</span><br><em class="scr" data-text="make sense">make sense</em> <span class="scr" data-text="of it">of it</span></h2>
+      <p class="org">Goyal Malhotra &amp; Associates · Articleship</p>
+      <p class="bod">Three years across audit, assurance, and investment research. Renewable Power, Solar, Gaming Technology, Infrastructure EPC, Pharma, F&amp;B. Collaborated with Deloitte India and GT Austria GmbH on cross-border consolidations. Won "Best Article" award. Reviewer of ICAI's AFM study material.</p>
+      <div class="stats"><div class="stats-grid">
+        <div class="si"><span class="sn" data-count="12000" data-prefix="₹" data-suffix="M+">₹12,000M+</span><span class="sl">Capex audited · Ind AS 16 &amp; 23</span></div>
+        <div class="si"><span class="sn" data-count="2700" data-prefix="₹" data-suffix="M">₹2,700M</span><span class="sl">Green Bonds evaluated</span></div>
+        <div class="si"><span class="sn" data-count="73">73</span><span class="sl">Entities · group audit</span></div>
+        <div class="si"><span class="sn" data-count="14" data-suffix="+">14+</span><span class="sl">Team members led</span></div>
+      </div>
+      <p class="fineprint">Ind AS 109 · 116 · 115 · 7 · 24 · 34 · ₹4,000M Ind AS financials · PLCR &amp; impairment testing · HNI investment research · ₹1,200M–₹26,000M client range</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" data-i="4" data-dot="Expansion" data-piece="infinity">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">05</span> The Expansion <span class="eb-yr">2022–24</span></div>
+      <h2 class="ttl"><span class="scr" data-text="Finance needed">Finance needed</span><br><span class="scr" data-text="a ">a </span> <em class="scr" data-text="wider lens">wider lens</em></h2>
+      <p class="org">NMIMS Mumbai · MBA, Financial Management</p>
+      <p class="bod">Pursued alongside articleship. MBA gave the other perspective — how finance interacts with operations, product, and scale simultaneously. How businesses are actually built. The horizontal of the T began to form.</p>
+      <div class="stats"><div class="stats-grid">
+        <div class="si"><span class="sn">Top 5</span><span class="sl">Ranked in multiple subjects</span></div>
+        <div class="si"><span class="sn">Kartavya</span><span class="sl">Social Change · IIM Sambalpur</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="ch ch-peak" data-i="5" data-dot="The Peak" data-piece="galaxy">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">06</span> The Peak <span class="eb-yr">Nov 2024</span></div>
+      <h2 class="ttl"><span class="scr" data-text="All India">All India</span><br><span class="scr" data-text="Rank ">Rank </span> <em class="scr" data-text="44">44</em></h2>
+      <p class="org">ICAI · CA Final</p>
+      <p class="bod">CA Final cleared. All India's 2nd highest marks in Advanced Financial Management — not by memorising formulas, but by understanding why they exist. If a student enters the CA course today, the probability of earning a rank in CA Final is just 0.05%.</p>
+      <div class="stats"><div class="stats-grid">
+        <div class="si"><span class="sn">AIR 44</span><span class="sl">All India Rank</span></div>
+        <div class="si"><span class="sn">#2</span><span class="sl">Highest AFM marks · India</span></div>
+        <div class="si"><span class="sn">0.05%</span><span class="sl">Rank probability</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="ch" data-i="6" data-dot="Synthesis I" data-piece="ribbon">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">07</span> The Synthesis · I <span class="eb-yr">2025</span></div>
+      <h2 class="ttl"><span class="scr" data-text="Numbers tell the">Numbers tell the</span><br><em class="scr" data-text="industry story">industry story</em></h2>
+      <p class="org">Edfora · Financial Controllership · 2025</p>
+      <p class="bod">Controllership at an EdTech serving 25,000+ students brought the industry lens — where numbers stopped being entries and became decisions.</p>
+      <div class="stats"><div class="stats-list">
+        <div class="li">Automated revenue recognition end-to-end — <b>60% reduction</b> in processing turnaround</div>
+        <div class="li">Strategic financial inputs drove a <b>13.6% uplift</b> in platform valuation</div>
+        <div class="li">Built <b>board-ready decks</b> — financial storytelling for CEO &amp; investor decisions</div>
+        <div class="li">Product-level P&amp;L visibility · MoM cash-flow monitoring · forward projections</div>
+        <div class="li">Cross-functional execution: Sales, Marketing, Tech, Product, HR, CEO's Office</div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="ch" data-i="7" data-dot="Synthesis II" data-piece="figures">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">08</span> The Synthesis · II <span class="eb-yr">2026 · Now</span></div>
+      <h2 class="ttl"><span class="scr" data-text="The T-shape,">The T-shape,</span><br><em class="scr" data-text="fully deployed">fully deployed</em></h2>
+      <p class="org">OmniCard® · Strategy, Founder's Office · Present</p>
+      <p class="bod">I sit at the centre of everything: finance, strategy, product thinking, GTM, and cross-functional alignment. My job is to carry the founder's vision and translate it into execution across every team.</p>
+      <div class="stats"><div class="stats-list">
+        <div class="li">Own <b>financial planning and business finance</b> for a FinTech scaling across enterprise and SMB</div>
+        <div class="li"><b>Drive cross-functional alignment</b> across Product, Sales, Marketing, Tech toward founder vision</div>
+        <div class="li">Lead <b>investor relations and fundraising narratives</b> — the financial story for capital raising</div>
+        <div class="li"><b>Architect AI-led process automations</b> that eliminate operational inefficiencies across the org</div>
+        <div class="li">Shape <b>product and marketing strategy</b> as part of the core founding team</div>
+      </div>
+      <p class="fineprint">RBI-Licensed FinTech · India's first AI-powered expense management solution · UPI + RuPay infrastructure</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ch" data-i="8" data-dot="Beyond Work" data-piece="ring">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">09</span> Beyond the Work <span class="eb-yr">Always</span></div>
+      <h2 class="ttl"><span class="scr" data-text="What I do when">What I do when</span><br><span class="scr" data-text="no one's ">no one's </span> <em class="scr" data-text="keeping score">keeping score</em></h2>
+      <p class="org">Kind Beings NGO · Project Manager · Active</p>
+      <p class="bod">Not every problem is solved with a spreadsheet. Some are just human. Leading community drives and fundraising for underprivileged groups is how I stay connected to that truth.</p>
+      <div class="stats"><div class="stats-grid">
+        <div class="si"><span class="sn" data-count="50" data-suffix="+">50+</span><span class="sl">Community drives led</span></div>
+        <div class="si"><span class="sn" data-count="15" data-suffix="+">15+</span><span class="sl">Volunteers managed</span></div>
+      </div></div>
+    </div>
+  </section>
+
+  <section class="finale" data-dot="Finale" data-piece="converge">
+    <div class="fin-in">
+      <p class="fin-tag reveal">The definition keeps evolving</p>
+      <h2 class="fin-h reveal">The smartest in the room is the one who <em>never stopped</em> becoming smarter.</h2>
+      <p class="fin-sub reveal">The rank proves depth. The world rewards depth + range + evolution.<br>Finance. Strategy. AI. Execution. One brain.</p>
+      <div class="fin-cta reveal">
+        <a class="cta-btn" id="magnetic" href="https://www.linkedin.com/in/aayush-pundir-ap22" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+        <div class="cta-meta">
+          <a href="mailto:aayushpundir.ap@gmail.com">aayushpundir.ap@gmail.com</a>
+          <span>·</span>
+          <a href="tel:+919999894179">+91 99998 94179</a>
+        </div>
+      </div>
+      <p class="fin-foot reveal">Aayush Pundir · CA, AIR 44 · 2026</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ============================================================
+   ENV / CAPABILITY DETECTION
+============================================================ */
+var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var FINE    = window.matchMedia('(pointer: fine)').matches;
+var W = window.innerWidth, H = window.innerHeight;
+var TIER = W < 640 ? 'mobile' : (W < 1100 ? 'tablet' : 'desktop');
+var COUNT = TIER === 'mobile' ? 2800 : TIER === 'tablet' ? 4600 : 7200;
+var DUST  = Math.floor(COUNT / 3);
+var STARS = TIER === 'mobile' ? 350 : 700;
+if (REDUCED) { COUNT = Math.floor(COUNT * 0.6); }
+
+function fail(){ document.body.classList.add('no-fx'); }
+if (!window.THREE || !window.gsap || !window.ScrollTrigger) { fail(); return; }
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+try {
+/* ============================================================
+   PRELOADER (real progress feel, min dwell, max cap)
+============================================================ */
+var preNum = document.getElementById('pre-num'),
+    preFill = document.getElementById('pre-fill'),
+    preEl = document.getElementById('preloader');
+var preVal = 0, preDone = false;
+var preTimer = setInterval(function(){
+  preVal += Math.random() * 9 + 2;
+  if (preVal >= 100) { preVal = 100; clearInterval(preTimer); finishPre(); }
+  preNum.textContent = Math.floor(preVal);
+  preFill.style.width = preVal + '%';
+}, 95);
+function finishPre(){
+  if (preDone) return; preDone = true;
+  setTimeout(function(){
+    preEl.classList.add('done');
+    introSequence();
+  }, 250);
+}
+// safety: never trap the user behind the preloader
+setTimeout(function(){ clearInterval(preTimer); preNum.textContent='100'; preFill.style.width='100%'; finishPre(); }, 5200);
+
+/* ============================================================
+   THREE — SCENE
+============================================================ */
+var canvas = document.getElementById('webgl');
+var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: false, alpha: true, powerPreference: 'high-performance' });
+var DPR = Math.min(window.devicePixelRatio || 1, TIER === 'desktop' ? 1.75 : 2);
+renderer.setPixelRatio(DPR);
+renderer.setSize(W, H);
+var scene = new THREE.Scene();
+scene.fog = new THREE.FogExp2(0x0B0806, 0.028);
+var camera = new THREE.PerspectiveCamera(50, W / H, 0.1, 200);
+camera.position.set(0, 0, 11);
+
+/* soft round glow sprite */
+function makeSprite(){
+  var c = document.createElement('canvas'); c.width = c.height = 64;
+  var g = c.getContext('2d');
+  var grad = g.createRadialGradient(32,32,0,32,32,32);
+  grad.addColorStop(0,'rgba(255,255,255,1)');
+  grad.addColorStop(0.25,'rgba(255,255,255,.85)');
+  grad.addColorStop(0.6,'rgba(255,255,255,.22)');
+  grad.addColorStop(1,'rgba(255,255,255,0)');
+  g.fillStyle = grad; g.fillRect(0,0,64,64);
+  var t = new THREE.CanvasTexture(c); return t;
+}
+var sprite = makeSprite();
+
+var GOLD   = new THREE.Color('#E8B84B');
+var HOT    = new THREE.Color('#FFE9A8');
+var EMBER  = new THREE.Color('#F2A23C');
+var THEME  = {
+  seed:'#E8B84B', seedling:'#D9A93F', column:'#E0B046', helix:'#E8B84B',
+  torus:'#EFC25C', infinity:'#E8B84B', galaxy:'#FFE288', ribbon:'#E8C268',
+  figures:'#EFBE55', ring:'#E2AE45', converge:'#E8B84B'
+};
+
+/* ---------- SHAPE HELPERS ---------- */
+function rnd(a,b){ return a + Math.random()*(b-a); }
+var shapes = {};
+var shapePool = {};
+var lastVariant = {};
+function genVariants(name, fn, n){
+  if(!shapePool[name]) shapePool[name]=[];
+  for(var v=0;v<n;v++){
+    var arr = new Float32Array(COUNT*3);
+    for(var i=0;i<COUNT;i++){
+      var p = fn(i/COUNT, i, v);
+      arr[i*3]=p[0]; arr[i*3+1]=p[1]; arr[i*3+2]=p[2];
+    }
+    shapePool[name].push(arr);
+    if(v===0) shapes[name]=arr;
+  }
+}
+function gen(name,fn){ genVariants(name,fn,1); }
+function pickVariant(name){
+  var pool=shapePool[name];
+  if(!pool||pool.length<=1) return shapes[name];
+  var last=lastVariant[name]||0, idx;
+  do{ idx=Math.floor(Math.random()*pool.length); }while(idx===last&&pool.length>1);
+  lastVariant[name]=idx;
+  return pool[idx];
+}
+
+/* ============================================================
+   SHAPES — 6 variants × 11 sections = 66 total
+   All scaled so max radius ~3.5–4.5 — fills camera view at z=11
+   Each variant chosen for personal brand narrative alignment
+============================================================ */
+
+/* HERO — Big Bang energy: 6 cosmic origin events */
+genVariants('seed', function(t,i,v){
+  if(v===0){ /* Big Bang — 4 expanding shells */
+    var sh=Math.floor(Math.random()*4);
+    var r=[0.6,1.4,2.6,4.0][sh]+Math.pow(Math.random(),.5)*[0.4,0.5,0.6,0.5][sh];
+    var th=Math.random()*Math.PI*2, ph=Math.acos(rnd(-1,1));
+    return [r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th)*.75,r*Math.cos(ph)];
+  }
+  if(v===1){ /* Quasar — dual jets + fat accretion disk */
+    if(Math.random()<.40){ var a=Math.random()*Math.PI*2, rd=rnd(.8,3.8); return [Math.cos(a)*rd,rnd(-.18,.18),Math.sin(a)*rd*.3]; }
+    var jet=Math.random()<.5?1:-1, yd=Math.pow(Math.random(),.5)*4.2*jet, sp=Math.max(.06,.45*(1-Math.abs(yd)/4.5));
+    return [rnd(-sp,sp)*2.5,yd,rnd(-sp,sp)*2.5];
+  }
+  if(v===2){ /* Neutron star — dense core + wide halo */
+    if(Math.random()<.5){ var r3=Math.pow(Math.random(),3)*.7, th3=Math.random()*Math.PI*2, ph3=Math.acos(rnd(-1,1)); return [r3*Math.sin(ph3)*Math.cos(th3),r3*Math.cos(ph3),r3*Math.sin(ph3)*Math.sin(th3)]; }
+    var r4=rnd(2.5,4.5), th4=Math.random()*Math.PI*2, ph4=Math.acos(rnd(-1,1));
+    return [r4*Math.sin(ph4)*Math.cos(th4),r4*Math.cos(ph4),r4*Math.sin(ph4)*Math.sin(th4)];
+  }
+  if(v===3){ /* Nebula — 3 overlapping gas lobes */
+    var lobe=Math.floor(Math.random()*3), cx=[0,-1.6,1.6][lobe], cz=[0,1.0,-.8][lobe];
+    var r5=Math.pow(Math.random(),.5)*rnd(1.8,2.8), th5=Math.random()*Math.PI*2, ph5=Math.acos(rnd(-1,1));
+    return [cx+r5*Math.sin(ph5)*Math.cos(th5),r5*Math.cos(ph5)*.55,cz+r5*Math.sin(ph5)*Math.sin(th5)];
+  }
+  if(v===4){ /* CMB — 5 concentric spherical shells */
+    var n=[.9,1.6,2.4,3.2,4.1][Math.floor(Math.random()*5)];
+    var th6=Math.random()*Math.PI*2, ph6=Math.acos(rnd(-1,1));
+    return [n*Math.sin(ph6)*Math.cos(th6)+rnd(-.07,.07),n*Math.cos(ph6)+rnd(-.07,.07),n*Math.sin(ph6)*Math.sin(th6)+rnd(-.07,.07)];
+  }
+  /* v5 — Gamma Ray Burst: narrow pencil beam */
+  var b=Math.random()<.5?1:-1, d=Math.pow(Math.random(),.35)*4.5*b, sp=Math.max(.03,.28*(1-Math.abs(d)/4.8));
+  return [rnd(-sp,sp)*2.2,d,rnd(-sp,sp)*2.2];
+},6);
+
+/* ROOT — DNA origins: 6 nucleic acid / molecular structures */
+genVariants('seedling', function(t,i,v){
+  var y=(t-.5)*7.5;
+  if(v===0){ /* B-DNA double helix — wider radius */
+    var arm=i%2, a=y*1.55+arm*Math.PI;
+    if(i%9===0){ var ax=y*1.55, m=Math.random(); return [Math.cos(ax)*2.2*(m*2-1),y,Math.sin(ax)*2.2*(m*2-1)]; }
+    return [Math.cos(a)*2.2+rnd(-.07,.07),y+rnd(-.05,.05),Math.sin(a)*2.2+rnd(-.07,.07)];
+  }
+  if(v===1){ /* A-DNA — wider pitch, 11bp/turn */
+    var arm2=i%2, a2=y*2.1+arm2*Math.PI;
+    if(i%7===0){ var ax2=y*2.1, m2=Math.random(); return [Math.cos(ax2)*2.5*(m2*2-1),y,Math.sin(ax2)*2.5*(m2*2-1)]; }
+    return [Math.cos(a2)*2.5+rnd(-.06,.06),y+rnd(-.05,.05),Math.sin(a2)*2.5+rnd(-.06,.06)];
+  }
+  if(v===2){ /* Protein α-helix — tight coil, R=1.2, pitch 1.5Å */
+    var a3=y*3.8+rnd(-.04,.04), R3=1.8;
+    return [Math.cos(a3)*R3+rnd(-.08,.08),y+rnd(-.04,.04),Math.sin(a3)*R3+rnd(-.08,.08)];
+  }
+  if(v===3){ /* RNA hairpin — straight stem + arched loop */
+    if(y>1.6){ var lp=(y-1.6)/1.2*Math.PI; return [Math.cos(lp+(i%2)*Math.PI)*2.0,1.6+Math.sin(lp)*2.2,Math.sin(lp+(i%2)*Math.PI)*1.2]; }
+    var a4=y*1.5+(i%2)*Math.PI; return [Math.cos(a4)*1.9+rnd(-.06,.06),y,Math.sin(a4)*1.9+rnd(-.06,.06)];
+  }
+  if(v===4){ /* Chromatin solenoid — supercoiled fiber */
+    var sc=y*0.85+(i%2)*Math.PI, rc=2.0+Math.sin(y*2.2)*.7;
+    return [Math.cos(sc)*rc+rnd(-.14,.14),y+Math.sin(y*3)*.2+rnd(-.08,.08),Math.sin(sc)*rc+rnd(-.14,.14)];
+  }
+  /* v5 — Triple helix: three arms 120° apart */
+  var arm5=i%3, a6=y*1.5+arm5*(Math.PI*2/3);
+  if(i%8===0){ var ax6=y*1.5, m5=Math.random(), a5=ax6+arm5*(Math.PI*2/3); return [Math.cos(a5)*2.1*(m5*2-1),y,Math.sin(a5)*2.1*(m5*2-1)]; }
+  return [Math.cos(a6)*2.1+rnd(-.06,.06),y+rnd(-.05,.05),Math.sin(a6)*2.1+rnd(-.06,.06)];
+},6);
+
+/* FOUNDATION — Monumental structures: human mastery over stone/math */
+genVariants('column', function(t,i,v){
+  if(v===0){ /* Black Monolith — 1:4:9 (1²:2²:3²), wider */
+    var f=Math.random();
+    if(f<.28) return [rnd(-1.2,1.2),rnd(-3.2,3.2),(Math.random()<.5?-2.7:2.7)+rnd(-.03,.03)];
+    if(f<.56) return [(Math.random()<.5?-1.2:1.2)+rnd(-.03,.03),rnd(-3.2,3.2),rnd(-2.7,2.7)];
+    return [rnd(-1.2,1.2),(Math.random()<.5?-3.2:3.2)+rnd(-.05,.05),rnd(-2.7,2.7)];
+  }
+  if(v===1){ /* Egyptian Pyramid — 4 faces, apex at top */
+    var side=Math.floor(Math.random()*4), prog=Math.random();
+    var h=3.2-prog*3.2, base=prog*3.0;
+    var a=(side+Math.random()*.98)*Math.PI*.5;
+    return [Math.cos(a)*base,h-3.2,Math.sin(a)*base];
+  }
+  if(v===2){ /* Ziggurat — 5 stepped levels */
+    var lv=Math.floor(Math.random()*5), lw=[3.2,2.4,1.7,1.0,.4][lv], lh=[-2.8,-1.3,.0,1.3,2.6][lv];
+    var a3=Math.random()*Math.PI*2;
+    return [Math.cos(a3)*lw+rnd(-.07,.07),lh+rnd(-.07,.07),Math.sin(a3)*lw+rnd(-.07,.07)];
+  }
+  if(v===3){ /* Stonehenge — 30 uprights + lintels on R=3.0 */
+    var nst=30, si=i%nst, ang=si/nst*Math.PI*2+rnd(-.04,.04), R=3.0;
+    if(Math.random()<.22) return [Math.cos(ang)*R+rnd(-.09,.09),2.8+rnd(-.05,.05),Math.sin(ang)*R+rnd(-.09,.09)];
+    return [Math.cos(ang)*R+rnd(-.07,.07),rnd(-2.8,2.4),Math.sin(ang)*R+rnd(-.07,.07)];
+  }
+  if(v===4){ /* Obelisk — 4-sided tapered, H=7 */
+    var yp=rnd(-3.5,3.5), w=Math.max(.06,.8*(1-(yp+3.5)/7));
+    var a5=Math.floor(Math.random()*4)*Math.PI*.5+rnd(-.06,.06);
+    return [Math.cos(a5)*w,yp,Math.sin(a5)*w];
+  }
+  /* v5 — Crystal lattice — FCC unit cells tiled 3×3×3 */
+  var cx=((i%3)-1)*2.2, cy=(Math.floor(i/3)%3-1)*2.2, cz=(Math.floor(i/9)%3-1)*2.2;
+  var jit=.25;
+  /* face centres */
+  var fc=Math.floor(Math.random()*3);
+  if(fc===0) return [cx+rnd(-jit,jit),cy+rnd(-1,1)*1.1,cz+rnd(-jit,jit)];
+  if(fc===1) return [cx+rnd(-1,1)*1.1,cy+rnd(-jit,jit),cz+rnd(-jit,jit)];
+  return [cx+rnd(-jit,jit),cy+rnd(-jit,jit),cz+rnd(-1,1)*1.1];
+},6);
+
+/* INTERMEDIATE — Growth patterns: golden ratio / self-similar math */
+genVariants('helix', function(t,i,v){
+  if(v===0){ /* Fibonacci 5-arm galaxy spiral */
+    var arm=i%5, r=Math.pow(t,.52)*4.5, a=r*2.5+arm*(Math.PI*2/5)+rnd(-.07,.07);
+    return [r*Math.cos(a),(Math.sin(a*.3)*.45+rnd(-.1,.1))*(1-r/5.2),r*Math.sin(a)];
+  }
+  if(v===1){ /* Nautilus — equiangular spiral cross-section, large */
+    var ang=t*Math.PI*5.5, r2=Math.exp(ang*.19)*.22;
+    r2=Math.min(r2,4.5);
+    return [r2*Math.cos(ang)+rnd(-.09,.09),rnd(-.2,.2),r2*Math.sin(ang)+rnd(-.09,.09)];
+  }
+  if(v===2){ /* Sunflower phyllotaxis — Fermat spiral, fills disc */
+    var phi2=2.3999632, n2=t*COUNT, r3=Math.sqrt(n2/COUNT)*4.3, a3=n2*phi2;
+    return [r3*Math.cos(a3)+rnd(-.07,.07),rnd(-.14,.14),r3*Math.sin(a3)+rnd(-.07,.07)];
+  }
+  if(v===3){ /* Pinecone helical lattice (m=8 n=13) */
+    var m=8, n3=13, idx=i%(m*n3), u=idx%m, w=Math.floor(idx/m);
+    var r4=.6+w*.26, h=w*.56-3.5, a4=u*(Math.PI*2/m)+w*(Math.PI*2/n3);
+    return [r4*Math.cos(a4)+rnd(-.05,.05),h+rnd(-.04,.04),r4*Math.sin(a4)+rnd(-.05,.05)];
+  }
+  if(v===4){ /* Rose curve — rhodonea k=7, large */
+    var a5=t*Math.PI*2*7, r5=Math.cos(7*a5)*4.0;
+    return [r5*Math.cos(a5)+rnd(-.07,.07),rnd(-.18,.18),r5*Math.sin(a5)+rnd(-.07,.07)];
+  }
+  /* v5 — Coriolis double-vortex */
+  var sign=i%2===0?1:-1, ang2=t*Math.PI*4*sign, r6=Math.pow(t,.4)*4.2;
+  return [r6*Math.cos(ang2)+rnd(-.1,.1),(1-t)*sign*2.5+rnd(-.12,.12),r6*Math.sin(ang2)+rnd(-.1,.1)];
+},6);
+
+/* CRAFT — Orbital precision: Saturn, rings, knots, structures */
+genVariants('torus', function(t,i,v){
+  if(v===0){ /* Saturn — planet body (R=1.4) + 5 ring bands */
+    if(i<COUNT*.18){ var r=Math.pow(Math.random(),.5)*1.4, th=Math.random()*Math.PI*2, ph=Math.acos(rnd(-1,1)); return [r*Math.sin(ph)*Math.cos(th),r*Math.cos(ph)*.9,r*Math.sin(ph)*Math.sin(th)]; }
+    var radii=[1.7,2.1,2.55,3.05,3.55], ww=[.07,.06,.08,.05,.07], bd=Math.floor(Math.random()*5);
+    var rad=radii[bd]+rnd(-ww[bd],ww[bd]), a=Math.random()*Math.PI*2;
+    return [rad*Math.cos(a),rad*Math.cos(a)*Math.sin(.465)*.14,rad*Math.sin(a)];
+  }
+  if(v===1){ /* Torus knot (2,3) — trefoil on torus */
+    var u=t*Math.PI*2, p=2, q=3;
+    var r2=Math.cos(q*u)+2.8, x=r2*Math.cos(p*u)*1.1, y=r2*Math.sin(p*u)*1.1, z=-Math.sin(q*u)*1.1;
+    return [x+rnd(-.08,.08),y+rnd(-.08,.08),z+rnd(-.08,.08)];
+  }
+  if(v===2){ /* Torus knot (3,5) — cinquefoil */
+    var u2=t*Math.PI*2*5;
+    var r3=Math.cos(3*u2)+2.5, x2=r3*Math.cos(u2)*.95, y2=r3*Math.sin(u2)*.95, z2=-Math.sin(3*u2)*1.0;
+    return [x2+rnd(-.07,.07),y2+rnd(-.07,.07),z2+rnd(-.07,.07)];
+  }
+  if(v===3){ /* Pulsar magnetosphere — 5 nested tilted rings */
+    var nc=5, rc=[1.0,1.7,2.4,3.2,4.0][i%nc], tilt=(i%nc)*.22;
+    var a3=Math.random()*Math.PI*2;
+    return [rc*Math.cos(a3),rc*Math.sin(a3)*Math.sin(tilt)+rnd(-.06,.06),rc*Math.sin(a3)*Math.cos(tilt)];
+  }
+  if(v===4){ /* Dyson sphere mesh — geodesic points on R=3.8 sphere */
+    var th4=Math.random()*Math.PI*2, ph4=Math.acos(rnd(-1,1)), R4=3.8+rnd(-.05,.05);
+    return [R4*Math.sin(ph4)*Math.cos(th4),R4*Math.cos(ph4)*.7,R4*Math.sin(ph4)*Math.sin(th4)];
+  }
+  /* v5 — Accretion disk: flat spiral inflow */
+  var ang5=t*Math.PI*8, r5=.4+Math.pow(t,.5)*3.5;
+  return [r5*Math.cos(ang5)+rnd(-.09,.09),rnd(-.06,.06)*(1-.8*t),r5*Math.sin(ang5)+rnd(-.09,.09)];
+},6);
+
+/* EXPANSION — Infinite topology: mind-bending math objects */
+genVariants('infinity', function(t,i,v){
+  if(v===0){ /* Möbius strip — R=2.5, wide band */
+    var u=t*Math.PI*2, vv=(Math.random()-.5)*.85;
+    return [(2.5+vv*Math.cos(u/2))*Math.cos(u),(2.5+vv*Math.cos(u/2))*Math.sin(u),vv*Math.sin(u/2)*1.8];
+  }
+  if(v===1){ /* Lemniscate of Bernoulli — large */
+    var a=t*Math.PI*2, d=1+Math.sin(a)*Math.sin(a);
+    return [4.0*Math.cos(a)/d+rnd(-.09,.09),4.0*Math.sin(a)*Math.cos(a)/d+rnd(-.09,.09),rnd(-.22,.22)*2.5];
+  }
+  if(v===2){ /* Trefoil knot — R=2.5 */
+    var u2=t*Math.PI*2, r2=.7+Math.cos(3*u2)*1.9;
+    return [(r2*Math.cos(2*u2)+rnd(-.07,.07))*1.3,(r2*Math.sin(2*u2)+rnd(-.07,.07))*1.3,Math.sin(3*u2)*1.2+rnd(-.07,.07)];
+  }
+  if(v===3){ /* Spirograph (hypotrochoid) R=3, r=1, d=2 */
+    var R=3, r3=1, d=2.2, a3=t*Math.PI*2*6;
+    var x=(R-r3)*Math.cos(a3)+d*Math.cos((R-r3)/r3*a3), y=(R-r3)*Math.sin(a3)-d*Math.sin((R-r3)/r3*a3);
+    return [x*.9+rnd(-.08,.08),y*.9+rnd(-.08,.08),rnd(-.25,.25)*1.8];
+  }
+  if(v===4){ /* Figure-8 knot — clear form */
+    var u4=t*Math.PI*2;
+    var x4=(Math.cos(u4)*(2+Math.cos(2*u4)))*1.3, y4=(Math.sin(u4)*(2+Math.cos(2*u4)))*1.3, z4=Math.sin(3*u4)*1.1;
+    return [x4+rnd(-.06,.06),y4+rnd(-.06,.06),z4+rnd(-.06,.06)];
+  }
+  /* v5 — Epitrochoid (R=2.5 r=.8 d=3.2) — spirograph petals */
+  var R5=2.5, r5=.8, d5=3.0, a5=t*Math.PI*2*8;
+  var x5=(R5+r5)*Math.cos(a5)-d5*Math.cos((R5+r5)/r5*a5);
+  var y5=(R5+r5)*Math.sin(a5)-d5*Math.sin((R5+r5)/r5*a5);
+  return [x5*.55+rnd(-.07,.07),y5*.55+rnd(-.07,.07),rnd(-.2,.2)*2];
+},6);
+
+/* PEAK — Galactic grandeur: the moment of maximum achievement */
+genVariants('galaxy', function(t,i,v){
+  if(v===0){ /* Milky Way — central bar + 4 arms + bulge */
+    var p=Math.random();
+    if(p<.12) return [rnd(-2.0,2.0)+rnd(-.09,.09),rnd(-.14,.14),rnd(-.4,.4)];
+    if(p<.22){ var rb=Math.pow(Math.random(),2)*1.2, th=Math.random()*Math.PI*2, ph=Math.acos(rnd(-1,1)); return [rb*Math.sin(ph)*Math.cos(th),rb*Math.cos(ph)*.30,rb*Math.sin(ph)*Math.sin(th)]; }
+    var arm=i%4, r=Math.pow(Math.random(),.6)*4.4, a=r*1.3+arm*(Math.PI/2)+rnd(-.13,.13);
+    var th2=Math.max(.05,(1-r/4.6)*.2);
+    return [Math.cos(a)*r,rnd(-th2,th2),Math.sin(a)*r];
+  }
+  if(v===1){ /* Andromeda — 2-arm inclined 15° */
+    var arm2=i%2, r2=Math.pow(Math.random(),.62)*4.5, a2=r2*1.1+arm2*Math.PI+rnd(-.2,.2);
+    var y2=Math.sin(a2)*r2*Math.sin(.26);
+    return [Math.cos(a2)*r2,y2*.28+rnd(-.12,.12),Math.sin(a2)*r2*Math.cos(.26)];
+  }
+  if(v===2){ /* Whirlpool M51 — tight 2-arm + satellite */
+    var arm3=i%2, r3=Math.pow(Math.random(),.5)*4.2, a3=r3*2.3+arm3*Math.PI+rnd(-.11,.11);
+    if(Math.random()<.09){ var sc=rnd(.3,1.4), sth=Math.random()*Math.PI*2; return [Math.cos(sth)*sc+3.6,rnd(-.35,.35),Math.sin(sth)*sc+1.4]; }
+    return [Math.cos(a3)*r3,rnd(-.13,.13),Math.sin(a3)*r3];
+  }
+  if(v===3){ /* Sombrero — edge-on disc + bright nucleus */
+    var r4=Math.pow(Math.random(),.5)*4.4, a4=Math.random()*Math.PI*2;
+    if(Math.random()<.22) return [r4*Math.cos(a4),rnd(-.07,.07)*r4*.15,r4*Math.sin(a4)];
+    if(Math.random()<.14){ var rb2=Math.pow(Math.random(),2)*1.1, th4=Math.random()*Math.PI*2, ph4=Math.acos(rnd(-1,1)); return [rb2*Math.sin(ph4)*Math.cos(th4),rb2*Math.cos(ph4)*.9,rb2*Math.sin(ph4)*Math.sin(th4)]; }
+    return [r4*Math.cos(a4),(Math.pow(Math.random(),2)*rnd(.09,.32))*(Math.random()<.5?1:-1),r4*Math.sin(a4)];
+  }
+  if(v===4){ /* Elliptical E0 — smooth bright sphere */
+    var r5=Math.pow(Math.random(),.38)*4.0, th5=Math.random()*Math.PI*2, ph5=Math.acos(rnd(-1,1));
+    return [r5*Math.sin(ph5)*Math.cos(th5),r5*Math.cos(ph5)*.58,r5*Math.sin(ph5)*Math.sin(th5)];
+  }
+  /* v5 — Irregular/Magellanic — 3 asymmetric clumps */
+  var clump=Math.floor(Math.random()*3), cx2=[0,-2.2,1.8][clump], cz2=[0,.7,-1.1][clump];
+  var r6=Math.pow(Math.random(),.5)*rnd(1.0,2.6), th6=Math.random()*Math.PI*2;
+  return [cx2+Math.cos(th6)*r6,rnd(-.28,.28),cz2+Math.sin(th6)*r6];
+},6);
+
+/* SYNTHESIS I — Wave phenomena: translating data into narrative */
+genVariants('ribbon', function(t,i,v){
+  var x=(t-.5)*9.5;
+  if(v===0){ /* Pulsar beam — helical EM wave, large amplitude */
+    var y=Math.sin(x*2.6)*2.2+rnd(-.09,.09), z=Math.cos(x*2.6)*1.1+rnd(-.09,.09);
+    if(Math.random()<.22) return [x+rnd(-.18,.18),rnd(-.28,.28),rnd(-.28,.28)];
+    return [x,y*(0.5+Math.random()*.5),z*(0.5+Math.random()*.5)];
+  }
+  if(v===1){ /* Aurora — 3 curtain layers with phase offset */
+    var l=Math.floor(Math.random()*3);
+    var y2=Math.sin(x*1.1+(l*2.1))*2.0+l*.7, z2=l*.6+rnd(-.12,.12);
+    return [x+rnd(-.12,.12),y2,z2];
+  }
+  if(v===2){ /* Gravitational wave — chirp (amplitude grows) */
+    var env=Math.exp(Math.abs(x)*.22)*.12, omega=2.8+Math.abs(x)*.18;
+    var y3=env*Math.sin(x*omega)+rnd(-.07,.07), z3=env*Math.cos(x*omega)*.55+rnd(-.07,.07);
+    return [x,y3,z3];
+  }
+  if(v===3){ /* Solar flare — arching plasma loop */
+    var ang=t*Math.PI, R=3.8;
+    var y4=Math.sin(ang)*R, x4=Math.cos(ang)*R*.65;
+    var sp=Math.max(.06,.5*(1-t));
+    return [x4+rnd(-sp,sp)*1.8,y4+rnd(-sp,sp)*1.2-.6,rnd(-.35,.35)];
+  }
+  if(v===4){ /* Magnetar dipole field lines */
+    var la=t*Math.PI, lo=Math.random()*Math.PI*2, L=3.5;
+    var s2=Math.sin(la)*Math.sin(la);
+    return [L*s2*Math.cos(lo)+rnd(-.07,.07),L*s2*Math.sin(lo)+rnd(-.07,.07),L*Math.sin(la)*Math.cos(la)+rnd(-.07,.07)];
+  }
+  /* v5 — Comet: nucleus dense + two diverging tails */
+  var cx3=-4+t*9;
+  if(Math.random()<.14) return [cx3,rnd(-.14,.14),rnd(-.14,.14)];
+  var tl=Math.random()<.5?1:-1, sp2=(t*.6+.06)*2.2;
+  return [cx3,tl*sp2*rnd(.4,1)+rnd(-.08,.08),rnd(-sp2*.6,sp2*.6)];
+},6);
+
+/* SYNTHESIS II — Constellations: connecting the dots (cross-functional alignment) */
+genVariants('figures', function(t,i,v){
+  /* Stars scaled to ±3.5 range, connections visible */
+  var CONS=[
+    /* Orion — most recognisable, 8 stars */
+    [[-2.2,2.3],[-2.3,-2.4],[1.7,2.0],[1.5,-2.5],[-0.28,.12],[0,.12],[0.28,.12],[0.12,-.6]],
+    /* Ursa Major (Big Dipper) 7 */
+    [[-2.6,-.6],[-1.7,-.37],[-.75,-.62],[-.85,-1.5],[.5,-1.2],[1.7,-.75],[3.0,-.12]],
+    /* Cassiopeia W 5 */
+    [[-3.0,1.0],[-1.5,-.5],[0,1.0],[1.5,-.5],[3.0,.75]],
+    /* Scorpius curved 9 */
+    [[-2.8,1.0],[-1.8,.5],[-.8,.25],[0,0],[.5,-.6],[1.0,-1.5],[.75,-2.5],[0,-3.2],[-.5,-3.7]],
+    /* Leo — sickle + triangle 7 */
+    [[-2.3,1.0],[-1.5,2.0],[-.25,2.2],[.75,1.5],[1.0,.25],[-.25,-.5],[2.0,-.75]],
+    /* Southern Cross — Crux 4 */
+    [[0,2.4],[0,-2.4],[-2.0,0],[2.0,0]]
+  ];
+  var c=CONS[v%CONS.length];
+  var si=i%c.length, sr=c[si];
+  var spread=.32;
+  return [sr[0]+rnd(-spread,spread)*1.6,sr[1]+rnd(-spread,spread)*1.6,rnd(-.4,.4)];
+},6);
+
+/* BEYOND WORK — Extreme phenomena: what lies beyond the visible */
+genVariants('ring', function(t,i,v){
+  if(v===0){ /* Wormhole — throat R=0.7 + large accretion disk */
+    if(Math.random()<.35){ var r=1.4+Math.pow(Math.random(),.65)*2.8, a=Math.random()*Math.PI*2; return [Math.cos(a)*r,rnd(-.12,.12)*(1+(r-1.4)*.3),Math.sin(a)*r*.32]; }
+    var ang=Math.random()*Math.PI*2, d=rnd(-2.2,2.2), rad=.7+Math.abs(d)*.32;
+    return [Math.cos(ang)*rad,d,Math.sin(ang)*rad*.45];
+  }
+  if(v===1){ /* Black hole — accretion + photon sphere + jets */
+    if(Math.random()<.1) return [rnd(-.3,.3),rnd(-.3,.3),rnd(-.3,.3)];
+    var zone=Math.random();
+    if(zone<.32){ var r2=rnd(1.8,4.0), a2=Math.random()*Math.PI*2; return [Math.cos(a2)*r2,rnd(-.07,.07),Math.sin(a2)*r2*.28]; }
+    if(zone<.46){ var r3=rnd(.85,1.1), a3=Math.random()*Math.PI*2; return [Math.cos(a3)*r3,rnd(-.05,.05),Math.sin(a3)*r3]; }
+    var jet2=Math.random()<.5?1:-1, jd=Math.pow(Math.random(),.5)*3.8*jet2, js=Math.max(.04,.3*(1-Math.abs(jd)/4));
+    return [rnd(-js,js)*2,jd,rnd(-js,js)*2];
+  }
+  if(v===2){ /* Einstein ring + 4 gravitational arcs */
+    if(Math.random()<.18) return [rnd(-.35,.35),rnd(-.35,.35),rnd(-.18,.18)];
+    var arc=i%4, R2=rnd(2.6,3.8), a5=arc*(Math.PI*2/4)+rnd(-.5,.5)+Math.random()*.9;
+    return [Math.cos(a5)*R2,rnd(-.05,.05),Math.sin(a5)*R2*.26];
+  }
+  if(v===3){ /* Vortex funnel — tornado, full height */
+    var y3=(t-.5)*8, rad2=Math.abs(y3)*.55+.14;
+    var a6=Math.random()*Math.PI*2;
+    return [Math.cos(a6)*rad2+rnd(-.07,.07),y3,Math.sin(a6)*rad2*.75+rnd(-.07,.07)];
+  }
+  if(v===4){ /* LHC collision — large storage ring + debris burst */
+    if(Math.random()<.25){ var r5=Math.pow(Math.random(),2)*1.5, th5=Math.random()*Math.PI*2, ph5=Math.acos(rnd(-1,1)); return [r5*Math.sin(ph5)*Math.cos(th5),r5*Math.cos(ph5),r5*Math.sin(ph5)*Math.sin(th5)]; }
+    var a7=Math.random()*Math.PI*2, R5=4.0;
+    return [Math.cos(a7)*R5+rnd(-.07,.07),rnd(-.05,.05),Math.sin(a7)*R5+rnd(-.07,.07)];
+  }
+  /* v5 — Pulsar timing spiral — Archimedean inward */
+  var ang8=t*Math.PI*7, r8=.2+t*4.2;
+  return [r8*Math.cos(ang8)+rnd(-.1,.1),rnd(-.18,.18),r8*Math.sin(ang8)+rnd(-.1,.1)];
+},6);
+
+/* FINALE — Solar system: 6 orbital phase variants */
+var ORBITS=[
+  {r:0,   n:.06,tilt:0},    /* Sun */
+  {r:.9,  n:.06,tilt:.09},  /* Mercury-ish */
+  {r:1.5, n:.10,tilt:.16},  /* Venus-ish */
+  {r:2.2, n:.13,tilt:-.11}, /* Earth-ish */
+  {r:3.0, n:.17,tilt:.24},  /* Mars-ish */
+  {r:3.7, n:.17,tilt:-.19}, /* Asteroid belt */
+  {r:4.3, n:.16,tilt:.13},  /* Jupiter-ish */
+  {r:4.9, n:.11,tilt:-.09}  /* Saturn-ish */
+];
+var OW=[]; var _acc=0; ORBITS.forEach(function(o){_acc+=o.n;OW.push(_acc);});
+genVariants('converge', function(t,i,v){
+  var phOff=v*(Math.PI/3.0), incS=1+(v%3)*.14;
+  var rr=Math.random(), oi=0;
+  for(var k=0;k<OW.length;k++){if(rr<OW[k]){oi=k;break;}}
+  var orb=ORBITS[oi];
+  if(orb.r===0){
+    var rs=Math.pow(Math.random(),2.2)*.55, th2=Math.random()*Math.PI*2, ph2=Math.acos(rnd(-1,1));
+    return [rs*Math.sin(ph2)*Math.cos(th2),rs*Math.cos(ph2)*.92,rs*Math.sin(ph2)*Math.sin(th2)];
+  }
+  var a=Math.random()*Math.PI*2+phOff, j=.07;
+  var x=orb.r*Math.cos(a), z=orb.r*Math.sin(a);
+  var y2=z*Math.sin(orb.tilt*incS)+rnd(-j,j);
+  return [x+rnd(-j,j),y2,z*Math.cos(orb.tilt*incS)+rnd(-j,j)];
+},6);
+
+
+
+/* ---------- MORPH PARTICLES ---------- */
+var positions = new Float32Array(shapes.seed);          // live
+var fromArr   = new Float32Array(COUNT*3);              // morph origin snapshot
+var burst     = new Float32Array(COUNT*3);              // scatter directions
+var phase     = new Float32Array(COUNT);                // per-particle wobble phase
+for (var i=0;i<COUNT;i++){
+  var th=Math.random()*Math.PI*2, ph=Math.acos(rnd(-1,1));
+  burst[i*3]=Math.sin(ph)*Math.cos(th); burst[i*3+1]=Math.cos(ph); burst[i*3+2]=Math.sin(ph)*Math.sin(th);
+  phase[i]=Math.random()*Math.PI*2;
+}
+var geo = new THREE.BufferGeometry();
+geo.setAttribute('position', new THREE.BufferAttribute(positions,3));
+geo.setAttribute('aPhase', new THREE.BufferAttribute(phase,1));
+
+var uni = {
+  uTime:{value:0},
+  uColor:{value: GOLD.clone()},
+  uSize:{value: TIER==='mobile' ? 26.0 : 30.0},
+  uPx:{value: DPR}
+};
+var mat = new THREE.ShaderMaterial({
+  uniforms: Object.assign({ map:{value:sprite} }, uni),
+  transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+  vertexShader:[
+    'uniform float uTime; uniform float uSize; uniform float uPx;',
+    'attribute float aPhase; varying float vA;',
+    'void main(){',
+    '  vec3 p = position;',
+    '  p.x += sin(uTime*0.6 + aPhase)*0.05;',
+    '  p.y += cos(uTime*0.5 + aPhase*1.3)*0.05;',
+    '  p.z += sin(uTime*0.4 + aPhase*0.7)*0.05;',
+    '  vec4 mv = modelViewMatrix * vec4(p,1.0);',
+    '  float tw = 0.72 + 0.28*sin(uTime*1.8 + aPhase*5.0);',
+    '  vA = tw;',
+    '  gl_PointSize = uSize * uPx * tw / max(1.0,-mv.z);',
+    '  gl_Position = projectionMatrix * mv;',
+    '}'].join('\n'),
+  fragmentShader:[
+    'uniform sampler2D map; uniform vec3 uColor; varying float vA;',
+    'void main(){',
+    '  vec4 t = texture2D(map, gl_PointCoord);',
+    '  gl_FragColor = vec4(uColor, t.a * vA * 0.9);',
+    '}'].join('\n')
+});
+var points = new THREE.Points(geo, mat);
+scene.add(points);
+
+/* dust layer */
+var dustPos = new Float32Array(DUST*3), dustPh = new Float32Array(DUST);
+for (var d=0; d<DUST; d++){
+  dustPos[d*3]=rnd(-9,9); dustPos[d*3+1]=rnd(-6,6); dustPos[d*3+2]=rnd(-7,4); dustPh[d]=Math.random()*Math.PI*2;
+}
+var dustGeo = new THREE.BufferGeometry();
+dustGeo.setAttribute('position', new THREE.BufferAttribute(dustPos,3));
+dustGeo.setAttribute('aPhase', new THREE.BufferAttribute(dustPh,1));
+var dustUni = { uTime:{value:0}, uColor:{value:new THREE.Color('#E8B84B')}, uSize:{value:10.0}, uPx:{value:DPR} };
+var dustMat = new THREE.ShaderMaterial({
+  uniforms: Object.assign({ map:{value:sprite} }, dustUni),
+  transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+  vertexShader: mat.vertexShader,
+  fragmentShader:[
+    'uniform sampler2D map; uniform vec3 uColor; varying float vA;',
+    'void main(){ vec4 t=texture2D(map, gl_PointCoord); gl_FragColor=vec4(uColor, t.a*vA*0.28); }'].join('\n')
+});
+scene.add(new THREE.Points(dustGeo, dustMat));
+
+/* far starfield */
+var starPos = new Float32Array(STARS*3);
+for (var s=0;s<STARS;s++){
+  var r=rnd(20,60), th2=Math.random()*Math.PI*2, ph2=Math.acos(rnd(-1,1));
+  starPos[s*3]=r*Math.sin(ph2)*Math.cos(th2); starPos[s*3+1]=r*Math.cos(ph2)*.6; starPos[s*3+2]=-Math.abs(r*Math.sin(ph2)*Math.sin(th2))-8;
+}
+var starGeo = new THREE.BufferGeometry();
+starGeo.setAttribute('position', new THREE.BufferAttribute(starPos,3));
+var starMat = new THREE.PointsMaterial({ map:sprite, size:.55, color:0xF5F1E8, transparent:true, opacity:.35, depthWrite:false, blending:THREE.AdditiveBlending, sizeAttenuation:true });
+var starField = new THREE.Points(starGeo, starMat);
+scene.add(starField);
+
+/* ---------- MORPH ENGINE ---------- */
+var morph = { active:false, t:1, piece:'seed', targetArr: null };
+function setPiece(name){
+  if (!shapes[name]) return;
+  // Always pick a fresh variant — no repeat guard so every enter = new shape
+  var variant = pickVariant(name);
+  // If same piece re-entered, still morph to new variant
+  fromArr.set(positions);
+  morph.targetArr = variant;
+  morph.piece = name;
+  morph.t = 0; morph.active = true;
+  gsap.to(uni.uColor.value, { r:new THREE.Color(THEME[name]).r, g:new THREE.Color(THEME[name]).g, b:new THREE.Color(THEME[name]).b, duration:1.4, ease:'power2.out' });
+}
+function easeMorph(x){ return x<.5 ? 2*x*x : 1-Math.pow(-2*x+2,2)/2; }
+
+/* ---------- POINTER PARALLAX ---------- */
+var mx=0,my=0,smx=0,smy=0;
+function onPoint(x,y){ mx = x/W - .5; my = y/H - .5; }
+addEventListener('mousemove', function(e){ onPoint(e.clientX,e.clientY); }, {passive:true});
+addEventListener('touchmove', function(e){ if(e.touches[0]) onPoint(e.touches[0].clientX, e.touches[0].clientY); }, {passive:true});
+
+/* ---------- RENDER LOOP ---------- */
+var camState = { z: 11 };
+var clock = new THREE.Clock();
+var running = true;
+document.addEventListener('visibilitychange', function(){ running = !document.hidden; if(running) tick(); });
+function tick(){
+  if (!running) return;
+  requestAnimationFrame(tick);
+  var t = clock.getElapsedTime();
+  uni.uTime.value = t; dustUni.uTime.value = t;
+
+  if (morph.active){
+    morph.t = Math.min(1, morph.t + (REDUCED ? .05 : .016));
+    var e = easeMorph(morph.t), sBurst = Math.sin(morph.t*Math.PI), tgt = morph.targetArr || shapes[morph.piece];
+    for (var i=0;i<COUNT;i++){
+      var ix=i*3, iy=ix+1, iz=ix+2;
+      var bs = sBurst * (REDUCED ? .3 : 1.55) * (0.6 + ((i%7)/7)*.8);
+      positions[ix] = fromArr[ix] + (tgt[ix]-fromArr[ix])*e + burst[ix]*bs;
+      positions[iy] = fromArr[iy] + (tgt[iy]-fromArr[iy])*e + burst[iy]*bs;
+      positions[iz] = fromArr[iz] + (tgt[iz]-fromArr[iz])*e + burst[iz]*bs;
+    }
+    geo.attributes.position.needsUpdate = true;
+    if (morph.t >= 1) morph.active = false;
+  }
+
+  // Solar system mode: when on 'converge' piece, orbit in ecliptic plane
+  if (morph.piece === 'converge' && !morph.active) {
+    points.rotation.y = REDUCED ? 0 : t * 0.18;  // faster orbital spin
+    points.rotation.x = REDUCED ? 0 : -0.38;     // tilted ecliptic plane view
+    points.rotation.z = REDUCED ? 0 : Math.sin(t*0.07)*0.04;
+  } else {
+    points.rotation.y = REDUCED ? 0 : t * 0.12;
+    points.rotation.x = REDUCED ? 0 : Math.sin(t*.15)*.1;
+    points.rotation.z = 0;
+  }
+  starField.rotation.y = t * 0.008;
+
+  smx += (mx - smx)*.045; smy += (my - smy)*.045;
+  camera.position.x += (smx*1.7 - camera.position.x)*.05;
+  camera.position.y += (-smy*1.2 - camera.position.y)*.05;
+  camera.position.z += (camState.z - camera.position.z)*.06;
+  camera.lookAt(0,0,0);
+
+  renderer.render(scene, camera);
+}
+tick();
+
+addEventListener('resize', function(){
+  W = innerWidth; H = innerHeight;
+  camera.aspect = W/H; camera.updateProjectionMatrix();
+  renderer.setSize(W,H);
+  ScrollTrigger.refresh();
+}, {passive:true});
+
+/* ============================================================
+   CUSTOM CURSOR (desktop only)
+============================================================ */
+if (FINE && !REDUCED){
+  document.body.classList.add('cursor-on');
+  var cur=document.getElementById('cur'), ring=document.getElementById('cur-ring');
+  var cx=W/2, cy=H/2, rx=cx, ry=cy;
+  addEventListener('mousemove', function(e){ cx=e.clientX; cy=e.clientY; cur.style.left=cx+'px'; cur.style.top=cy+'px'; }, {passive:true});
+  addEventListener('mousedown', function(){ ring.classList.add('down'); });
+  addEventListener('mouseup', function(){ ring.classList.remove('down'); });
+  (function ringLoop(){ requestAnimationFrame(ringLoop); rx+=(cx-rx)*.16; ry+=(cy-ry)*.16; ring.style.left=rx+'px'; ring.style.top=ry+'px'; })();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter', function(){ ring.classList.add('hover'); });
+    el.addEventListener('mouseleave', function(){ ring.classList.remove('hover'); });
+  });
+}
+
+/* ============================================================
+   SCRAMBLE + COUNTERS
+============================================================ */
+var GLYPHS = '₹$%∑∞ΔπABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+function scramble(el){
+  var txt = el.dataset.text;
+  if (!txt || el.dataset.done || REDUCED){ if(txt) el.textContent = txt; return; }
+  el.dataset.done = '1';
+  var frame = 0, offs = txt.split('').map(function(){ return Math.floor(Math.random()*10); });
+  var iv = setInterval(function(){
+    var out='', solved=0;
+    for (var i=0;i<txt.length;i++){
+      if (frame > offs[i]+5){ out+=txt[i]; solved++; }
+      else if (txt[i]===' ') out+=' ';
+      else out += GLYPHS[Math.floor(Math.random()*GLYPHS.length)];
+    }
+    el.textContent = out; frame++;
+    if (solved===txt.length){ el.textContent = txt; clearInterval(iv); }
+  }, 26);
+}
+function countUp(card){
+  card.querySelectorAll('[data-count]').forEach(function(el){
+    if (el.dataset.cdone) return; el.dataset.cdone='1';
+    var end = parseFloat(el.dataset.count), pre = el.dataset.prefix||'', suf = el.dataset.suffix||'';
+    if (REDUCED){ el.textContent = pre + end.toLocaleString('en-IN') + suf; return; }
+    var o = { v:0 };
+    gsap.to(o, { v:end, duration:1.8, ease:'power2.out', onUpdate:function(){
+      el.textContent = pre + Math.floor(o.v).toLocaleString('en-IN') + suf;
+    }});
+  });
+}
+
+
+/* ============================================================
+   FLOATING FINANCE WORDS
+============================================================ */
+var FWORDS = [
+  // FP&A / Financial Planning
+  'Revenue','ARR','MRR','Burn Rate','Runway','EBITDA','EBITDA Margin',
+  'Gross Margin','Net Margin','Unit Economics','LTV','CAC','LTV:CAC',
+  'Payback Period','Churn','NRR','GRR','Rule of 40',
+  // Capital / Fundraising
+  'Series A','Series B','Growth Round','Pre-Money','Post-Money','Valuation',
+  'Term Sheet','Cap Table','SAFE Note','Convertible','Dilution','Lead Investor',
+  'Due Diligence','Data Room','GP/LP','IRR','MOIC','TVPI','DPI',
+  // Strategy / Growth
+  'GTM Strategy','North Star Metric','OKRs','KPIs','Product-Market Fit',
+  'Go-To-Market','Land & Expand','ACV','TCV','Pipeline','Win Rate',
+  'Market Share','TAM','SAM','SOM','Competitive Moat','Network Effect',
+  // FinTech / OmniCard
+  'PPI License','RBI Regulated','TPV','Take Rate','Expense Management',
+  'Corporate Cards','B2B FinTech','UPI','RuPay','NCMC','FASTag',
+  'Embedded Finance','Spend Analytics','Enterprise SaaS',
+  // Finance / CA
+  'Ind AS','IFRS','Financial Modeling','Scenario Analysis','Sensitivity',
+  'DCF','IRR','NPV','WACC','Beta','Alpha','Sharpe Ratio',
+  'Working Capital','Free Cash Flow','DSCR','Debt Covenants',
+  'Board Deck','Investor Relations','M&A','Deal Structuring',
+  // Startup ecosystem
+  'Founder','Co-Founder','Startup','Scale-Up','Unicorn','Decacorn',
+  'Bootstrapped','Profitable','ESOP','Advisory Board','Angel Round',
+  'Pitch Deck','Traction','Cohort Analysis','Retention','Activation',
+  // Finance formulas
+  'NPV = Σ CFt/(1+r)t','IRR: NPV=0','WACC = Ke·E/V + Kd·D/V',
+  'EV/EBITDA','P/E Ratio','EV = MCAP + Debt − Cash',
+  'ROE = NI/Equity','ROCE = EBIT/CE','DuPont: ROE=PM×AT×EM',
+  'FCF = EBIT(1-t)+D&A−ΔWCP−Capex','DSCR = EBITDA/DS',
+  'Beta = Cov(Ri,Rm)/Var(Rm)','CAPM: Re=Rf+β(Rm−Rf)',
+  'Gordon: P=D1/(r−g)','Modigliani-Miller','Black-Scholes',
+  // Key benchmarks & thresholds
+  'Rule of 40 > 40','LTV:CAC > 3x','Payback < 18mo','NRR > 110%',
+  'CAC Payback','ARR/FTE','Magic Number','Burn Multiple',
+  'SaaS Quick Ratio','Gross Retention','Net Dollar Retention',
+  // Ratios & multiples  
+  'EV/Revenue','Price/Book','Debt/EBITDA','Interest Coverage',
+  'Current Ratio','Quick Ratio','Asset Turnover','Inventory Days',
+  'DSO','DPO','CCC = DSO+DIO−DPO','Altman Z-Score',
+];
+var fwContainer = document.getElementById('fwords');
+var fwActive = [];
+var FW_MAX = TIER==='mobile' ? 10 : TIER==='tablet' ? 16 : 22;
+
+function spawnWord(){
+  if(REDUCED || fwActive.length >= FW_MAX) return;
+  var word = FWORDS[Math.floor(Math.random()*FWORDS.length)];
+  var el = document.createElement('span');
+  el.className = 'fw';
+  el.textContent = word;
+  var x = Math.random()*92 + 1; // % left
+  var dur = 14 + Math.random()*18; // 14-32s float
+  var dx = (Math.random()-0.5)*120; // horizontal drift px
+  var delay = Math.random()*-dur; // stagger start
+  el.style.left = x+'vw';
+  el.style.bottom = -(Math.random()*30)+'vh';
+  el.style.setProperty('--fw-dx', dx+'px');
+  el.style.animationDuration = dur+'s';
+  el.style.animationDelay = delay+'s';
+  el.style.fontSize = (8+Math.random()*4)+'px';
+  el.style.opacity = '0';
+  // vary intensity: some words get slightly brighter
+  if(Math.random()<.15) el.style.color='var(--gold-b)';
+  fwContainer.appendChild(el);
+  fwActive.push(el);
+  setTimeout(function(){
+    var idx=fwActive.indexOf(el);
+    if(idx>-1) fwActive.splice(idx,1);
+    el.remove();
+    spawnWord();
+  }, (dur+Math.abs(delay))*1000 + 500);
+}
+// Seed initial words
+if(!REDUCED){
+  for(var wi=0; wi<FW_MAX; wi++){
+    setTimeout(spawnWord, wi*400);
+  }
+}
+
+/* ============================================================
+   SCROLLTRIGGER CHOREOGRAPHY
+============================================================ */
+var chapName = document.querySelector('#chapname .cn-txt');
+function setChap(name){
+  if (chapName.textContent === name) return;
+  chapName.style.opacity = 0;
+  setTimeout(function(){ chapName.textContent = name; chapName.style.opacity = 1; }, 220);
+}
+
+/* camera pull-in over full page */
+gsap.to(camState, { z: 7.4, ease:'none',
+  scrollTrigger:{ trigger:'#scroll', start:'top top', end:'bottom bottom', scrub:1.6 }
+});
+
+var chapters = gsap.utils.toArray('.ch');
+ScrollTrigger.create({
+  trigger:'.hero', start:'top top', end:'bottom 55%',
+  onEnterBack:function(){ setPiece('seed'); setChap('Intro'); }
+});
+chapters.forEach(function(sec){
+  var piece = sec.dataset.piece;
+  var card  = sec.querySelector('.card');
+  var parts = card.querySelectorAll('.eyebrow,.ttl,.org,.bod,.stats,.fineprint');
+  var scrs  = sec.querySelectorAll('.scr');
+  gsap.set(parts, { opacity:0, y:46 });
+
+  ScrollTrigger.create({
+    trigger:sec, start:'top 58%', end:'bottom 42%',
+    onEnter:function(){ setPiece(piece); setChap(sec.dataset.dot); },
+    onEnterBack:function(){ setPiece(piece); setChap(sec.dataset.dot); }
+  });
+  ScrollTrigger.create({
+    trigger:sec, start:'top 70%',
+    onEnter:function(){
+      gsap.to(parts, { opacity:1, y:0, duration:1.05, stagger:.08, ease:'expo.out' });
+      scrs.forEach(function(s,i){ setTimeout(function(){ scramble(s); }, i*110); });
+      countUp(card);
+      noteChord();
+    },
+    onLeaveBack:function(){ gsap.to(parts, { opacity:0, y:46, duration:.4 }); }
+  });
+
+  /* card tilt — fine pointers only */
+  if (FINE && !REDUCED){
+    sec.addEventListener('mousemove', function(e){
+      var r = card.getBoundingClientRect();
+      var px = (e.clientX - r.left)/r.width - .5, py = (e.clientY - r.top)/r.height - .5;
+      gsap.to(card, { rotateY:px*6, rotateX:-py*5, transformPerspective:900, duration:.6, ease:'power2.out' });
+    });
+    sec.addEventListener('mouseleave', function(){ gsap.to(card, { rotateX:0, rotateY:0, duration:.9, ease:'elastic.out(1,.55)' }); });
+  }
+});
+
+/* hero + peak + finale color/intensity beats */
+ScrollTrigger.create({
+  trigger:'.ch-peak', start:'top 60%', end:'bottom 40%',
+  onEnter:peakOn, onEnterBack:peakOn, onLeave:peakOff, onLeaveBack:peakOff
+});
+function peakOn(){ gsap.to(uni.uSize, { value:(TIER==='mobile'?34:40), duration:1.2 }); gsap.to(dustUni.uColor.value, { r:HOT.r,g:HOT.g,b:HOT.b, duration:1.4 }); }
+function peakOff(){ gsap.to(uni.uSize, { value:(TIER==='mobile'?26:30), duration:1.2 }); gsap.to(dustUni.uColor.value, { r:GOLD.r,g:GOLD.g,b:GOLD.b, duration:1.4 }); }
+
+var finReveal = false;
+ScrollTrigger.create({
+  trigger:'.finale', start:'top 62%',
+  onEnter:function(){
+    setPiece('converge'); setChap('Finale');
+    gsap.to(uni.uSize, { value:(TIER==='mobile'?26:32), duration:2 }); gsap.to(camState, { z:12, duration:2.2, ease:'power2.out' });
+    if (!finReveal){
+      finReveal = true;
+      gsap.fromTo('.finale .reveal', { opacity:0, y:42 }, { opacity:1, y:0, duration:1.1, stagger:.13, ease:'expo.out' });
+    }
+  },
+  onLeaveBack:function(){ gsap.to(uni.uSize, { value:(TIER==='mobile'?26:30), duration:1.4 }); gsap.to(camState, { z:7.4, duration:1.4 }); }
+});
+/* hard safety: finale content always becomes visible/clickable */
+setTimeout(function(){ if(!finReveal){ document.querySelectorAll('.finale .reveal').forEach(function(el){ el.style.opacity=1; }); } }, 9000);
+
+/* progress bar */
+ScrollTrigger.create({ start:0, end:'max', onUpdate:function(self){
+  document.getElementById('prog').style.width = (self.progress*100) + '%';
+}});
+
+/* ============================================================
+   DOT NAV
+============================================================ */
+var dotsWrap = document.getElementById('dots');
+gsap.utils.toArray('section[data-dot]').forEach(function(sec){
+  var b = document.createElement('button');
+  b.setAttribute('aria-label', sec.dataset.dot);
+  b.innerHTML = '<span class="dot-label">'+sec.dataset.dot+'</span>';
+  b.addEventListener('click', function(){
+    gsap.to(window, { scrollTo:{ y:sec, autoKill:true }, duration:1.2, ease:'power3.inOut' });
+  });
+  dotsWrap.appendChild(b);
+  ScrollTrigger.create({
+    trigger:sec, start:'top 50%', end:'bottom 50%',
+    onToggle:function(st){
+      if (st.isActive){
+        dotsWrap.querySelectorAll('button').forEach(function(n){ n.classList.remove('active'); });
+        b.classList.add('active');
+      }
+    }
+  });
+});
+
+/* keyboard: arrows jump chapters */
+addEventListener('keydown', function(e){
+  if (e.key!=='ArrowDown' && e.key!=='ArrowUp') return;
+  var secs = gsap.utils.toArray('section[data-dot]');
+  var y = scrollY + H*.5, idx = 0;
+  secs.forEach(function(s,i){ if (s.offsetTop <= y) idx = i; });
+  var next = secs[Math.min(secs.length-1, Math.max(0, idx + (e.key==='ArrowDown'?1:-1)))];
+  e.preventDefault();
+  gsap.to(window, { scrollTo:{ y:next }, duration:1, ease:'power3.inOut' });
+});
+
+/* ============================================================
+   MAGNETIC CTA — transform only, never blocks navigation
+============================================================ */
+var mag = document.getElementById('magnetic');
+if (mag && FINE && !REDUCED){
+  addEventListener('mousemove', function(e){
+    var r = mag.getBoundingClientRect();
+    var cx2 = r.left + r.width/2, cy2 = r.top + r.height/2;
+    var dx = e.clientX - cx2, dy = e.clientY - cy2;
+    if (Math.hypot(dx,dy) < 150) gsap.to(mag, { x:dx*.38, y:dy*.38, duration:.4 });
+    else gsap.to(mag, { x:0, y:0, duration:.55, ease:'elastic.out(1,.4)' });
+  }, {passive:true});
+}
+
+/* ============================================================
+   CINEMATIC DARK AMBIENT ENGINE
+   Character: Hans Zimmer / Brian Eno style — slow evolving pads,
+   deep sub bass pulse, sparse high shimmer. Matches dark gold UI.
+   Pentatonic minor. No random bleeps. Pure mood.
+============================================================ */
+var sndBtn = document.getElementById('snd');
+var AC, master, reverb, soundOn = false;
+var pluckTimer = null, bassTimer = null, shimTimer = null;
+
+// A minor pentatonic: A2 C3 D3 E3 G3 A3 C4 D4 E4 G4
+var MEL  = [110.0, 130.8, 146.8, 164.8, 196.0, 220.0, 261.6, 293.7, 329.6, 392.0];
+var BASS_F = [27.5, 36.7, 41.2, 49.0]; // A0 D1 E1 G1 — sub bass
+
+function buildIR(ac){
+  var len = Math.floor(ac.sampleRate * 5.5);
+  var buf = ac.createBuffer(2, len, ac.sampleRate);
+  for (var c=0; c<2; c++){
+    var ch = buf.getChannelData(c);
+    for (var i=0;i<len;i++){
+      var decay = Math.pow(1-i/len, 1.8);
+      ch[i] = (Math.random()*2-1) * decay * (i<ac.sampleRate*0.005?0:1);
+    }
+  }
+  return buf;
+}
+
+function initAudio(){
+  if (AC) return;
+  var Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return;
+  AC = new Ctx();
+  var comp = AC.createDynamicsCompressor();
+  comp.threshold.value = -20; comp.ratio.value = 5; comp.attack.value = 0.1; comp.release.value = 0.6;
+  comp.connect(AC.destination);
+  master = AC.createGain(); master.gain.value = 0; master.connect(comp);
+  reverb = AC.createConvolver(); reverb.buffer = buildIR(AC);
+  var rg = AC.createGain(); rg.gain.value = 0.55; reverb.connect(rg); rg.connect(master);
+
+  // ---- DRONE: layered slow sine pads A1+E2+A2 with LFO swell ----
+  [[55,0.14],[82.4,0.09],[110,0.07],[164.8,0.04]].forEach(function(pair,idx){
+    var o=AC.createOscillator(), o2=AC.createOscillator();
+    o.type='sine'; o2.type='sine';
+    o.frequency.value=pair[0]; o2.frequency.value=pair[0]*1.0018;
+    var g=AC.createGain(); g.gain.value=pair[1];
+    var lfo=AC.createOscillator(); lfo.type='sine';
+    lfo.frequency.value=0.04+idx*0.008;
+    var lg=AC.createGain(); lg.gain.value=pair[1]*0.35;
+    lfo.connect(lg); lg.connect(g.gain);
+    o.connect(g); o2.connect(g);
+    g.connect(master); g.connect(reverb);
+    lfo.start(); o.start(); o2.start();
+  });
+
+  // ---- LOW RUMBLE: filtered noise ----
+  var bufLen = AC.sampleRate * 3;
+  var nbuf = AC.createBuffer(1, bufLen, AC.sampleRate);
+  var nd = nbuf.getChannelData(0);
+  for(var i=0;i<bufLen;i++) nd[i]=(Math.random()*2-1)*0.4;
+  var ns = AC.createBufferSource(); ns.buffer=nbuf; ns.loop=true;
+  var lp = AC.createBiquadFilter(); lp.type='lowpass'; lp.frequency.value=60; lp.Q.value=1.2;
+  var ng = AC.createGain(); ng.gain.value=0.07;
+  ns.connect(lp); lp.connect(ng); ng.connect(master);
+  ns.start();
+}
+
+// Long evolving pad chord — fades in slowly, hangs, fades out
+function padChord(){
+  if (!soundOn||!AC) return;
+  var root = MEL[Math.floor(Math.random()*5)]; // lower half only
+  var intervals = [1, 1.498, 1.782]; // root + fifth + min7
+  var now = AC.currentTime, dur = 6.5+Math.random()*4;
+  intervals.forEach(function(ratio,idx){
+    var f = root * ratio;
+    var o = AC.createOscillator(); o.type='sine';
+    var o2 = AC.createOscillator(); o2.type='sine';
+    o.frequency.value=f; o2.frequency.value=f*1.003;
+    var g = AC.createGain(); g.gain.value=0;
+    o.connect(g); o2.connect(g); g.connect(master); g.connect(reverb);
+    g.gain.setValueAtTime(0,now);
+    g.gain.linearRampToValueAtTime(0.055/(idx+1), now+2.8);
+    g.gain.setValueAtTime(0.055/(idx+1), now+dur-2.5);
+    g.gain.linearRampToValueAtTime(0,now+dur);
+    o.start(now); o.stop(now+dur+0.1);
+    o2.start(now); o2.stop(now+dur+0.1);
+  });
+  pluckTimer = setTimeout(padChord, (dur-1.5)*1000);
+}
+
+// Sparse high shimmer — single crystal note, very quiet
+function shimmer(){
+  if (!soundOn||!AC) return;
+  var f = MEL[5+Math.floor(Math.random()*5)]; // upper half
+  var o = AC.createOscillator(); o.type='sine'; o.frequency.value=f*2;
+  var g = AC.createGain(); g.gain.value=0;
+  var now=AC.currentTime;
+  o.connect(g); g.connect(reverb);
+  g.gain.setValueAtTime(0,now);
+  g.gain.linearRampToValueAtTime(0.028, now+0.4);
+  g.gain.exponentialRampToValueAtTime(0.001, now+3.8);
+  o.start(now); o.stop(now+4.2);
+  shimTimer = setTimeout(shimmer, 4000+Math.random()*6000);
+}
+
+// Deep bass pulse — slow heartbeat
+function bassPulse(){
+  if (!soundOn||!AC) return;
+  var f = BASS_F[Math.floor(Math.random()*BASS_F.length)];
+  var o = AC.createOscillator(); o.type='sine'; o.frequency.value=f;
+  var g = AC.createGain(); g.gain.value=0;
+  var now=AC.currentTime;
+  o.connect(g); g.connect(master);
+  g.gain.setValueAtTime(0,now);
+  g.gain.linearRampToValueAtTime(0.22,now+0.08);
+  g.gain.exponentialRampToValueAtTime(0.001,now+2.8);
+  o.start(now); o.stop(now+3.2);
+  bassTimer = setTimeout(bassPulse, 5500+Math.random()*4500);
+}
+
+// Called on chapter enter — very subtle single shimmer note
+function noteChord(){
+  if (!AC||!soundOn) return;
+  var f = MEL[Math.floor(Math.random()*MEL.length)];
+  var o = AC.createOscillator(); o.type='sine'; o.frequency.value=f;
+  var g = AC.createGain(); g.gain.value=0;
+  var now=AC.currentTime;
+  o.connect(g); g.connect(reverb);
+  g.gain.setValueAtTime(0,now);
+  g.gain.linearRampToValueAtTime(0.032,now+0.12);
+  g.gain.exponentialRampToValueAtTime(0.001,now+2.2);
+  o.start(now); o.stop(now+2.5);
+}
+
+sndBtn.addEventListener('click', function(){
+  initAudio();
+  if (!AC) return;
+  if (AC.state==='suspended') AC.resume();
+  soundOn = !soundOn;
+  sndBtn.setAttribute('aria-pressed', String(soundOn));
+  if (soundOn){
+    master.gain.linearRampToValueAtTime(0.72, AC.currentTime+2.8);
+    sndBtn.classList.remove('off'); sndBtn.classList.add('playing');
+    padChord(); shimmer(); bassPulse();
+  } else {
+    master.gain.linearRampToValueAtTime(0, AC.currentTime+1.8);
+    sndBtn.classList.add('off'); sndBtn.classList.remove('playing');
+    clearTimeout(pluckTimer); clearTimeout(shimTimer); clearTimeout(bassTimer);
+  }
+});
+
+/* ============================================================
+   INTRO SEQUENCE
+============================================================ */
+function introSequence(){
+  if (REDUCED){ document.querySelectorAll('.reveal,.hn-word').forEach(function(el){ el.style.opacity=1; el.style.transform='none'; }); return; }
+  gsap.to('.hn-word', { y:0, duration:1.4, stagger:.13, ease:'expo.out', delay:.15 });
+  gsap.fromTo('.hero-tag',   {opacity:0,y:16},{opacity:1,y:0,duration:1,delay:.4});
+  gsap.fromTo('.hero-role',  {opacity:0,y:20},{opacity:1,y:0,duration:1,delay:.85});
+  gsap.fromTo('.hero-skills',{opacity:0,y:20},{opacity:1,y:0,duration:1,delay:1.05});
+  gsap.fromTo('.hero-scroll',{opacity:0},{opacity:1,duration:1,delay:1.6});
+}
+
+ScrollTrigger.refresh();
+
+} catch(err){
+  console.error('FX init failed:', err);
+  fail();
+}
+})();
+</script>
+</body>
+</html>
