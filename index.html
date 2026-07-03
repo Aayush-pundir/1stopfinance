@@ -125,6 +125,29 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .li b{color:var(--cream);font-weight:400}
 .fineprint{margin-top:1.5rem;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.04em;word-spacing:.18em;line-height:2.1;color:var(--cream-3)}
 
+/* ---------- identity card (photo + credentials) ---------- */
+.id-card{display:flex;flex-direction:column;align-items:flex-start;gap:1.6rem}
+.id-photo-wrap{position:relative;width:132px;height:132px;flex-shrink:0}
+.id-photo-wrap::before{content:"";position:absolute;inset:-6px;border-radius:50%;border:1px solid var(--gold-d);opacity:.7}
+.id-photo{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:top center;display:block;box-shadow:0 14px 40px rgba(0,0,0,.55)}
+.id-badges{display:flex;flex-wrap:wrap;gap:.55rem;margin-top:1.5rem}
+.badge{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-d);border-radius:999px;padding:.42em .85em;white-space:nowrap}
+
+/* ---------- testimonials ---------- */
+.quote-list{display:flex;flex-direction:column;gap:1.5rem}
+.quote{padding-left:1.4rem;position:relative}
+.quote::before{content:"\201C";position:absolute;left:-.1rem;top:-.35rem;color:var(--gold);font-size:2.1rem;font-family:Fraunces,serif;line-height:1;opacity:.75}
+.quote-txt{font-size:.98rem;line-height:1.7;color:var(--cream-2);font-style:italic;font-weight:300}
+.quote-by{margin-top:.6rem;font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--cream-3)}
+.quote-by b{color:var(--gold);font-weight:700}
+
+/* ---------- CTA row extras ---------- */
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem}
+.cta-btn-ghost{position:relative;z-index:5;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-d);padding:1.2rem 2.6rem;text-decoration:none;border-radius:999px;display:inline-block;transition:border-color .3s,background .3s,color .3s}
+.cta-btn-ghost:hover,.cta-btn-ghost:focus-visible{border-color:var(--gold);background:rgba(232,184,75,.08)}
+.cta-btn-ghost:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
+@media (max-width:480px){.cta-btn-ghost{width:100%;text-align:center;padding:1.15rem 1rem}}
+
 /* ---------- finale ---------- */
 .finale{min-height:100vh;min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 1.5rem;padding-bottom:max(6rem,env(safe-area-inset-bottom));position:relative}
 .fin-in{max-width:920px;position:relative;z-index:3;background:radial-gradient(ellipse at center,rgba(11,8,6,.72) 0%,rgba(11,8,6,.55) 55%,transparent 100%);border-radius:24px;padding:2rem 1.5rem}
@@ -233,6 +256,23 @@ body.no-fx .card *{opacity:1!important;transform:none!important}
     <div class="hero-scroll reveal">
       <span>Scroll to begin</span>
       <div class="hs-line"></div>
+    </div>
+  </section>
+
+  <section class="ch" data-dot="About" data-piece="seed">
+    <div class="card id-card">
+      <div class="id-photo-wrap"><img class="id-photo" src="assets/aayush-pundir.jpg" alt="Aayush Pundir" width="264" height="264" loading="eager"/></div>
+      <div>
+        <div class="eyebrow">The Person</div>
+        <h2 class="ttl"><span class="scr" data-text="Before the">Before the</span> <em class="scr" data-text="timeline">timeline</em></h2>
+        <p class="bod">A Chartered Accountant who thinks like an operator. I move between the numbers and the narrative — building the model, then the story that gets it funded, then the plan that executes it.</p>
+      </div>
+      <div class="id-badges">
+        <span class="badge">CA · ICAI</span>
+        <span class="badge">AIR 44</span>
+        <span class="badge">MBA · NMIMS Mumbai</span>
+        <span class="badge">BCom · Delhi University</span>
+      </div>
     </div>
   </section>
 
@@ -354,13 +394,38 @@ body.no-fx .card *{opacity:1!important;transform:none!important}
     </div>
   </section>
 
+  <section class="ch" data-i="9" data-dot="Recognition" data-piece="figures">
+    <div class="card">
+      <div class="eyebrow"><span class="eb-num">10</span> Recognition <span class="eb-yr">2023–24</span></div>
+      <h2 class="ttl"><span class="scr" data-text="What the">What the</span> <span class="scr" data-text="room ">room </span><em class="scr" data-text="remembers">remembers</em></h2>
+      <p class="org">From people who worked the audits and deadlines alongside me</p>
+      <div class="stats"><div class="quote-list">
+        <div class="quote">
+          <p class="quote-txt">"He single-handedly led the project, overseeing all processes and successfully concluding it... I confidently recommend him for any role that demands reliability, skill, and strong leadership."</p>
+          <p class="quote-by">Princy Dwivedi <b>·</b> ICAI, senior on the engagement</p>
+        </div>
+        <div class="quote">
+          <p class="quote-txt">"His expertise in auditing, taxation and financial reporting is commendable. A reliable person who will undoubtedly make significant contributions in the finance industry."</p>
+          <p class="quote-by">Anubhav Singh <b>·</b> Senior Data Engineer, MetLife</p>
+        </div>
+        <div class="quote">
+          <p class="quote-txt">"Aayush consistently demonstrates professionalism, dedication, and a strong work ethic. His expertise in audit and assurance has been instrumental in achieving our team's goals."</p>
+          <p class="quote-by">Tushar Gupta <b>·</b> Colleague, Goyal Malhotra &amp; Associates</p>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
   <section class="finale" data-dot="Finale" data-piece="converge">
     <div class="fin-in">
       <p class="fin-tag reveal">The definition keeps evolving</p>
       <h2 class="fin-h reveal">The smartest in the room is the one who <em>never stopped</em> becoming smarter.</h2>
       <p class="fin-sub reveal">The rank proves depth. The world rewards depth + range + evolution.<br>Finance. Strategy. AI. Execution. One brain.</p>
       <div class="fin-cta reveal">
-        <a class="cta-btn" id="magnetic" href="https://www.linkedin.com/in/aayush-pundir-ap22" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+        <div class="cta-row">
+          <a class="cta-btn" id="magnetic" href="https://www.linkedin.com/in/aayush-pundir-ap22" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+          <a class="cta-btn-ghost" href="https://topmate.io/aayushpundir" target="_blank" rel="noopener noreferrer">Book a 1:1 Call ↗</a>
+        </div>
         <div class="cta-meta">
           <a href="mailto:aayushpundir.ap@gmail.com">aayushpundir.ap@gmail.com</a>
           <span>·</span>
@@ -715,11 +780,21 @@ genVariants('galaxy', function(t,i,v){
     var r5=Math.pow(Math.random(),.38)*4.0, th5=Math.random()*Math.PI*2, ph5=Math.acos(rnd(-1,1));
     return [r5*Math.sin(ph5)*Math.cos(th5),r5*Math.cos(ph5)*.58,r5*Math.sin(ph5)*Math.sin(th5)];
   }
-  /* v5 — Irregular/Magellanic — 3 asymmetric clumps */
-  var clump=Math.floor(Math.random()*3), cx2=[0,-2.2,1.8][clump], cz2=[0,.7,-1.1][clump];
-  var r6=Math.pow(Math.random(),.5)*rnd(1.0,2.6), th6=Math.random()*Math.PI*2;
-  return [cx2+Math.cos(th6)*r6,rnd(-.28,.28),cz2+Math.sin(th6)*r6];
-},6);
+  if(v===5){ /* Irregular/Magellanic — 3 asymmetric clumps */
+    var clump=Math.floor(Math.random()*3), cx2=[0,-2.2,1.8][clump], cz2=[0,.7,-1.1][clump];
+    var r6=Math.pow(Math.random(),.5)*rnd(1.0,2.6), th6=Math.random()*Math.PI*2;
+    return [cx2+Math.cos(th6)*r6,rnd(-.28,.28),cz2+Math.sin(th6)*r6];
+  }
+  /* v6 — Ascending bar chart: the numbers going up */
+  var BARS=[-3.2,-2.2,-1.2,-.2,.8,1.8,2.9], BH=[.55,.95,1.3,1.85,2.5,3.3,4.3];
+  var bi=i%BARS.length, bx=BARS[bi], bh=BH[bi];
+  if(Math.random()<.86){
+    var by=Math.random()*bh-2.2;
+    return [bx+rnd(-.34,.34), by, rnd(-.34,.34)];
+  }
+  var lt=Math.random(), lx=-3.4+lt*6.6, ly=-2.2+lt*4.6+.3;
+  return [lx+rnd(-.08,.08), ly+rnd(-.08,.08), rnd(-.15,.15)];
+},7);
 
 /* SYNTHESIS I — Wave phenomena: translating data into narrative */
 genVariants('ribbon', function(t,i,v){
@@ -1431,6 +1506,18 @@ ScrollTrigger.refresh();
   fail();
 }
 })();
+</script>
+
+<script
+  src="https://topmate-embed.s3.ap-south-1.amazonaws.com/v1/topmate-embed.js"
+  user-profile="https://topmate.io/aayushpundir"
+  button-text="Book a 1:1 Call"
+  position-right="24px"
+  position-bottom="24px"
+  embed-theme="rgb(232,184,75)"
+  custom-font-size="11px"
+  custom-font-weight="700"
+  defer>
 </script>
 </body>
 </html>
