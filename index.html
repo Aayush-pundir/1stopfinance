@@ -46,6 +46,8 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .pre-pct{font-size:.4em;color:var(--cream-3);margin-left:4px}
 .pre-bar{width:100%;height:1px;background:var(--gold-3);overflow:hidden;border-radius:1px}
 .pre-fill{width:0%;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-b));box-shadow:0 0 12px var(--gold-d)}
+#skip-intro{position:absolute;bottom:max(2rem,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:transparent;border:1px solid var(--gold-3);border-radius:999px;color:var(--cream-2);font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;padding:.7em 1.4em;cursor:pointer;transition:border-color .3s,color .3s}
+#skip-intro:hover,#skip-intro:focus-visible{border-color:var(--gold);color:var(--gold)}
 
 /* ---------- chrome ---------- */
 #prog{position:fixed;top:0;left:0;height:2px;width:0%;background:linear-gradient(90deg,var(--gold),var(--gold-b));z-index:1000;box-shadow:0 0 14px rgba(232,184,75,.5)}
@@ -142,7 +144,9 @@ a,button{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .quote-by b{color:var(--gold);font-weight:700}
 
 /* ---------- CTA row extras ---------- */
-.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem}
+.cta-row{display:flex;flex-wrap:wrap;justify-content:center;gap:2.4rem}
+.cta-choice{display:flex;flex-direction:column;align-items:center;gap:.85rem}
+.cta-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream-3)}
 .cta-btn-ghost{position:relative;z-index:5;font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:transparent;border:1px solid var(--gold-d);padding:1.2rem 2.6rem;text-decoration:none;border-radius:999px;display:inline-block;transition:border-color .3s,background .3s,color .3s}
 .cta-btn-ghost:hover,.cta-btn-ghost:focus-visible{border-color:var(--gold);background:rgba(232,184,75,.08)}
 .cta-btn-ghost:focus-visible{outline:2px solid var(--cream);outline-offset:4px}
@@ -222,6 +226,7 @@ body.no-fx .card *{opacity:1!important;transform:none!important}
     <div class="pre-count"><span id="pre-num">0</span><span class="pre-pct">%</span></div>
     <div class="pre-bar"><div class="pre-fill" id="pre-fill"></div></div>
   </div>
+  <button id="skip-intro" type="button">Skip intro ↓</button>
 </div>
 
 <div id="cur" aria-hidden="true"></div>
@@ -417,8 +422,14 @@ body.no-fx .card *{opacity:1!important;transform:none!important}
       <p class="fin-sub reveal">The rank proves depth. The world rewards depth + range + evolution.<br>Finance. Strategy. AI. Execution. One brain.</p>
       <div class="fin-cta reveal">
         <div class="cta-row">
-          <a class="cta-btn" id="magnetic" href="https://www.linkedin.com/in/aayush-pundir-ap22" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
-          <a class="cta-btn-ghost" href="https://topmate.io/aayushpundir" target="_blank" rel="noopener noreferrer">Book a 1:1 Call ↗</a>
+          <div class="cta-choice">
+            <p class="cta-label">Hiring, or exploring roles?</p>
+            <a class="cta-btn" id="magnetic" href="https://www.linkedin.com/in/aayush-pundir-ap22" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a>
+          </div>
+          <div class="cta-choice">
+            <p class="cta-label">Need finance or strategy advice?</p>
+            <a class="cta-btn-ghost" href="https://topmate.io/aayushpundir" target="_blank" rel="noopener noreferrer">Book a 1:1 Call ↗</a>
+          </div>
         </div>
         <div class="cta-meta">
           <a href="mailto:aayushpundir.ap@gmail.com">aayushpundir.ap@gmail.com</a>
@@ -445,6 +456,8 @@ body.no-fx .card *{opacity:1!important;transform:none!important}
 ============================================================ */
 var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 var FINE    = window.matchMedia('(pointer: fine)').matches;
+var SKIP    = false;
+try { SKIP = localStorage.getItem('ap_skip_intro') === '1'; } catch(e){}
 var W = window.innerWidth, H = window.innerHeight;
 var TIER = W < 640 ? 'mobile' : (W < 1100 ? 'tablet' : 'desktop');
 var COUNT = TIER === 'mobile' ? 2800 : TIER === 'tablet' ? 4600 : 7200;
@@ -464,7 +477,7 @@ var preNum = document.getElementById('pre-num'),
     preFill = document.getElementById('pre-fill'),
     preEl = document.getElementById('preloader');
 var preVal = 0, preDone = false;
-var preTimer = setInterval(function(){
+var preTimer = SKIP ? null : setInterval(function(){
   preVal += Math.random() * 9 + 2;
   if (preVal >= 100) { preVal = 100; clearInterval(preTimer); finishPre(); }
   preNum.textContent = Math.floor(preVal);
@@ -472,11 +485,19 @@ var preTimer = setInterval(function(){
 }, 95);
 function finishPre(){
   if (preDone) return; preDone = true;
+  try { localStorage.setItem('ap_skip_intro', '1'); } catch(e){}
   setTimeout(function(){
     preEl.classList.add('done');
     introSequence();
-  }, 250);
+  }, SKIP ? 0 : 250);
 }
+var skipBtn = document.getElementById('skip-intro');
+skipBtn.addEventListener('click', function(){
+  SKIP = true; clearInterval(preTimer);
+  preNum.textContent='100'; preFill.style.width='100%';
+  finishPre();
+});
+if (SKIP){ finishPre(); }
 // safety: never trap the user behind the preloader
 setTimeout(function(){ clearInterval(preTimer); preNum.textContent='100'; preFill.style.width='100%'; finishPre(); }, 5200);
 
@@ -1485,7 +1506,7 @@ sndBtn.addEventListener('click', function(){
    INTRO SEQUENCE
 ============================================================ */
 function introSequence(){
-  if (REDUCED){ document.querySelectorAll('.reveal,.hn-word').forEach(function(el){ el.style.opacity=1; el.style.transform='none'; }); return; }
+  if (REDUCED || SKIP){ document.querySelectorAll('.reveal,.hn-word').forEach(function(el){ el.style.opacity=1; el.style.transform='none'; }); return; }
   gsap.to('.hn-word', { y:0, duration:1.4, stagger:.13, ease:'expo.out', delay:.15 });
   gsap.fromTo('.hero-tag',   {opacity:0,y:16},{opacity:1,y:0,duration:1,delay:.4});
   gsap.fromTo('.hero-role',  {opacity:0,y:20},{opacity:1,y:0,duration:1,delay:.85});
